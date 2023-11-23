@@ -19,3 +19,7 @@ A personal passion project that showcases database collection of Nintendo games.
 ---
 ## Introduction 📝
 This is a personal project that explores the entirety of Nintendo Games Library. Therefore, these games will only involve consoles that are developed by Nintendo exclusively. I will be documenting each video game along with information related to it. What I want to get out of this project is:
+  * To apply my knowledge acquired during formal education.
+  * To showcase my skills in being able to mine, create, then visualize large amounts of data.
+  * To see how far I can take my skills in using SQL and other softwares such as Tableau and STATA.
+  * Which games sold the most units? Does ESRB rating affect the amount of sales? Which genre is the most popular? (Will get more specific later).
