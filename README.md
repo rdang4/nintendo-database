@@ -1,4 +1,4 @@
-# Nintendo Switch Library and Data Analytics Exploration
+# Nintendo Switch Library and Data Analytics
 
 <p align="center">
 <img src="https://media1.giphy.com/media/PkKjXRfMCxnRMHQWqE/giphy.gif" width=40% height=40%>
