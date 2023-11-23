@@ -3,4 +3,31 @@
 ## Methodology (SQL)
 
 <p align="center">
-<img src="https://media4.giphy.com/media/JcFUHp7b9mnj5a01AN/giphy.gif" width=40% height=40%>
+<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/methodology_sql_1.gif" width=30% height=30%>
+</p>
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+
+2. [Table Creation and Relationships](#table-creation-and-relationships)
+
+3. [Key Data Terms](#key-data-terms)
+
+4. [Start to End Points](#start-to-end-points)
+
+
+---
+## Table Creation and Relationships
+
+
+
+
+---
+## Key Data Terms
+
+
+
+
+---
+## Start to End Points
