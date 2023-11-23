@@ -8,7 +8,7 @@ A personal passion project that showcases database collection of Nintendo games.
 > **Updates: I will be updating this repository over time. I am currently adding more titles into my database and typing up a report.**
 
 
-## Table of Contents 📋
+# Table of Contents 📋
 
 1. [Introduction](#introduction-) 📝
 
@@ -20,7 +20,7 @@ A personal passion project that showcases database collection of Nintendo games.
 
 
 
-## Introduction 📝
+# Introduction 📝
 This is a personal project that explores the entirety of Nintendo Games Library. Therefore, these games will only involve consoles that are developed by Nintendo exclusively. I will be documenting each video game along with information related to it. What I want to get out of this project is:
   * To apply my knowledge acquired during formal education.
   * To showcase my skills in being able to mine, create, then visualize large amounts of data.
@@ -37,10 +37,35 @@ This is a personal project that explores the entirety of Nintendo Games Library.
 
 
 
-## Questions & Challenges ❗
+# Questions & Challenges ❗
+There are a few questions that I would like to create in order to challenge myself:
+
+* ❕ Question 1: Top 3 Genres 
+What are the top 3 genres of all games published by Nintendo?
+
+* ❕ Question 2: Popular Games 
+Which games are the most popular out of those 3 genres?
+
+* ❕ Question 3: More Specific Questions
+<details>
+<summary>
+Click to View Specific Questions
+</summary>
+
+I want to create more questions out of the top 3 genres in order to find out what this data can tell me specifically.
+
+1. Does the ESRB rating affect the amount of sales of Nintendo games?
+
+2. How many games did Nintendo release in their top genre?
+
+3. How many more games were released in the top genre compared to the third top genre?
+
+4. What is the percentage of games released in the top category compareed to all other categories?
+
+</details>
 
 
-## Data Overview 🗂️
+# Data Overview 🗂️
 
 
-## Citations 🧾
+# Citations 🧾
