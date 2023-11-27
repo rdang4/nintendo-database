@@ -69,3 +69,38 @@ I want to create more questions out of the top 3 genres in order to find out wha
 
 
 # Citations 🧾
+### About the Gaming Industry
+<details>
+<summary>
+Click to View
+</summary>
+ 
+[Problems with the Gaming Industry in 2023](https://www.youtube.com/shorts/evknEWzEBaQ)
+
+[More Information About Layoffs](https://www.axios.com/2023/10/12/2023-video-game-developer-layoffs)
+
+[NY Times Article on Unity Licensing Changes](https://www.nytimes.com/2023/10/02/technology/how-a-pricing-change-led-to-a-revolt-by-unitys-video-game-developers.html#:~:text=Trip%20Hawkins%2C%20the%20founder%20of,ever%20pounded%20into%20a%20wall)
+
+[Statistical Evaluation of Layoffs and Even More Sources](http://videogamelayoffs.com)
+</details>
+
+### The Project
+<details>
+<summary>
+Click to View
+</summary>
+ 
+[Metacritic Ratings](https://www.metacritic.com/browse/game/nintendo-switch/all/all-time/metascore/?platform=nintendo-switch&releaseYearMin=1910&releaseYearMax=2023&page=1)
+
+[History of All Nintendo Console Products](https://www.pocket-lint.com/nintendo-games-consoles-complete-history/)
+
+[List of Games Released by Year](https://www.switchscores.com/games/by-date/2017-03)
+
+[Sales Information by VGChartz](https://www.vgchartz.com/gamedb/)
+
+[Official Nintendo Site](https://www.nintendo.com/us/store/games/nintendo-switch-games/#sort=df)
+
+[PostgreSQL Documentation](https://www.postgresql.org/docs/)
+
+[Mind Map Made in Canva](https://www.canva.com/design/DAF07reEg8w/MCEiJaX7jP06fwuHWwH5sQ/edit?utm_content=DAF07reEg8w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+</details>
