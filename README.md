@@ -20,6 +20,7 @@ A personal passion project that showcases database collection of Nintendo games.
 
    a. [About the Gaming Industry](#about-the-gaming-industry)
 
+   b. [The Project](#the-project)
 
 # Introduction 📝
 This is a personal project that explores the entirety of Nintendo Games Library. Therefore, these games will only involve consoles that are developed by Nintendo exclusively. I will be documenting each video game along with information related to it. What I want to get out of this project is:
