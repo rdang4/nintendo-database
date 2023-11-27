@@ -18,6 +18,7 @@ A personal passion project that showcases database collection of Nintendo games.
 
 4. [Citations](#citations-) 🧾
 
+   a. [About the Gaming Industry](#about-the-gaming-industry)
 
 
 # Introduction 📝
