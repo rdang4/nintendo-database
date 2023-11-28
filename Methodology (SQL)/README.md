@@ -24,7 +24,7 @@ Each table is labeled from 1 to 7 to show the relationship between each dataset.
 Relationships between each dataset is shown below:
 
 <p align="center">
-<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/Nintendo_Database_Mind_Map.png" width=100% height=100%>
+<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/ND_Mind_Map_Text.png" width=100% height=100%>
 </p>
 
 
@@ -51,13 +51,27 @@ If I would like to answer my questions, I needed to figure out which data terms 
 
 ---
 ## Start to End Points
-To be able to get to the top 3 genres by a developer, I need to create a dataset that can get from **```genre.name```** to **```developer.name```**. Therefore, in order to achieve this result, I need to find a way to connect Table 1 **```Nintendo.genre```** all the way to Table 5 **```Nintendo.developer```**.
+To be able to get to the **top 3 genres by a developer**, I need to create a dataset that can get from **```genre.name```** to **```developer.name```**. Therefore, in order to achieve this result, I need to find a way to connect **Table 1** **```Nintendo.genre```** all the way to **Table 5** **```Nintendo.developer```**.
 
 <p align="center">
-<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/Nintendo_Database_Mind_Map.png" width=100% height=100%>
+<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/ND_Mind_Map_1.png" width=100% height=100%>
 </p>
 
 Additionally, I would be able to calculate the **```game_count```** based on the **```genre_id```** by referencing the **```game_category```** database. 
+
+<br />
+
+In order to start from **```Nintendo.genre```** and end at **```Nintendo.developer```** we need to find the foreign keys to join each table together.
+
+|Table Join       |Begin               |End                 |Foreign Key       |
+|-----------------|--------------------|--------------------|------------------|
+|**Part 1**       |```genre```         |```game_category``` |```genre_id```    |
+|**Part 2**       |```game_category``` |```game```          |```game_id```     |
+|**Part 3**       |```game```          |```game_developer```|```game_id```     |
+|**Part 4**       |```game_developer```|```developer```     |```developer_id```|
+
+This resulting table join will give us our SQL output. To help me visualize it even further, I decided to split this into different steps:
+
 
 ---
 
