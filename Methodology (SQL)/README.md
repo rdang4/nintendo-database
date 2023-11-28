@@ -30,14 +30,34 @@ Relationships between each dataset is shown below:
 
 ---
 ## Key Data Terms
+If I would like to answer my questions, I needed to figure out which data terms were going to be used in my query:
 
+* **```genre.name```**: To name the top 3 genres
+* **```game_count```**: How many game titles are within these genres?
+* **```average_rating```**: Identifying the top 3 genres based on the average rating on Metacritic
+* **```developer.name```**: Finding the top 3 genres published by Nintendo
+* **```game.title```**: To find the most popular game titles
 
+<br />
 
+* **```game.esrb```**: Identifying the ESRB ratings from the game table
+* **```game.sales_mil```**: Identifying the amount of sales depending on the ESRB
+* **```sum_sales_mil```**: Comparing the amount of sales based on each ESRB rating
+
+<br />
+
+* **```average_comparison```**: Comparing how many more games were released in the top genre compared to the third top genre
+* **```percentage```**: Calculated percentage of games released in the top genre compared to all other games
 
 ---
 ## Start to End Points
+To be able to get to the top 3 genres by a developer, I need to create a dataset that can get from **```genre.name```** to **```developer.name```**. Therefore, in order to achieve this result, I need to find a way to connect Table 1 **```Nintendo.genre```** all the way to Table 5 **```Nintendo.developer```**.
 
+<p align="center">
+<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/Nintendo_Database_Mind_Map.png" width=100% height=100%>
+</p>
 
+Additionally, I would be able to calculate the **```game_count```** based on the **```genre_id```** by referencing the **```game_category```** database. 
 
 ---
 
