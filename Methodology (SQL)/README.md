@@ -93,5 +93,10 @@ This resulting table join will give us our SQL output. To help me visualize it e
 </p>
 
 ---
+## Table Creation
+
+
+
+---
 
 <p>&copy; 2023 Ryan Dang</p>
