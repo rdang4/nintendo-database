@@ -59,7 +59,7 @@ To be able to get to the **top 3 genres by a developer**, I need to create a dat
 <img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/ND_Mind_Map_1.png" width=100% height=100%>
 </p>
 
-Additionally, I would be able to calculate the **```game_count```** based on the **```genre_id```** by referencing the **```game_category```** database. 
+Additionally, I would be able to calculate the **```game_count```** based on the **```genre_id```** by referencing the **```game_category```** database. Every other question can also stem from the first or answered with the **```Nintendo.game```** table.
 
 <br />
 
@@ -94,7 +94,7 @@ This resulting table join will give us our SQL output. To help me visualize it e
 
 ---
 ## Table Creation
-
+Now we can get started in the creation of each database! 
 
 
 ---
