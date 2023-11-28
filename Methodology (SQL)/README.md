@@ -94,7 +94,7 @@ This resulting table join will give us our SQL output. To help me visualize it e
 
 ---
 ## Table Creation
-Now we can get started in the creation of each database! Since I am starting from scratch, I cannot begin answering each question until I am done entering all the game titles from the Metacritic website. This process can take a LONG time.
+Now we can get started in the creation of each database! Since I am starting from scratch, I cannot begin answering each question until I am done entering all the game titles from the Metacritic website. The **```Nintendo.game```** table is what will take a majority of my time.
 
 
 ---
