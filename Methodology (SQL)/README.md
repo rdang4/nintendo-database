@@ -72,6 +72,9 @@ In order to start from **```Nintendo.genre```** and end at **```Nintendo.develop
 
 This resulting table join will give us our SQL output. To help me visualize it even further, I decided to split this into different steps:
 
+<p align="center">
+<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/ND_Mind_Map_1.png" width=100% height=100%>
+</p>
 
 ---
 
