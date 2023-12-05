@@ -149,7 +149,7 @@ LIMIT 5;
 
  <br />
  
-### **Problems/Hiccups**:
+### 🟥 **Problems/Hiccups**:
 
 As I was entering the values for **```genre.name```**, I noticed a problem. There are some genres that included apostrophes within their names, and naturally, this would mean it would close the character strings when entering values. Take the name ***Beat-'Em Up*** for example:
 
@@ -239,7 +239,11 @@ VALUES
  <br />
 
 > I added another column called **```details```**, but I took it out to shorten the chart a bit.
- 
+
+<br />
+
+### 🟥 **Problems/Hiccups**:
+
 ---
 Moving on to the **```game_category```** database, 
 
