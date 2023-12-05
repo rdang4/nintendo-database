@@ -94,7 +94,111 @@ This resulting table join will give us our SQL output. To help me visualize it e
 
 ---
 ## Table Creation
-Now we can get started in the creation of each database! Since I am starting from scratch, I cannot begin answering each question until I am done entering all the game titles from the Metacritic website. The **```Nintendo.game```** table is what will take a majority of my time.
+### a. Genre
+Now we can get started in the creation of each database! Since I am starting from scratch, I cannot begin answering each question until I am done entering all the game titles from the Metacritic website. Let's start with the easy part; the **```Nintendo.genre```** database.
+
+The idea is pretty much the same when creating the others. Here is what I had for **```genre```**:
+
+ <br /> 
+
+```sql
+CREATE TABLE genre
+(
+  genre_id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  last_update TIMESTAMP NOT NULL
+);
+
+```
+
+ <br /> 
+
+Now we get to add in the genres listed on the Metacritic site! I was able to find 44 genre names listed under the filter search. Since **```genre.id```** is a **SERIAL PRIMARY KEY**, every time I insert a row into the database, the **```genre.id```** will continuously count up for each update. 
+
+> (There are a lot of games that are not within these genre names. I do not understand why, but I will do my best to associate each game in respect to the closest genre name.)
+
+I will list the first **5 genre names** here:
+
+ <br />
+
+```sql
+INSERT INTO genre(name, last_update)
+VALUES
+  ('Action', CURRENT_TIMESTAMP),
+  ('Action Adventure', CURRENT_TIMESTAMP),
+  ('Action Puzzle', CURRENT_TIMESTAMP),
+  ('Action RPG', CURRENT_TIMESTAMP),
+  ('Adventure', CURRENT_TIMESTAMP);
+
+```
+```sql
+SELECT * FROM genre;
+```
+✅ **Result:**
+|genre_id|name            |last_update               |
+|--------|----------------|--------------------------|
+|1       |Action          |2023-11-14 00:29:30.420746|
+|2       |Action Adventure|2023-11-14 00:29:30.420746|
+|3       |Action Puzzle   |2023-11-14 00:29:30.420746|
+|4       |Action RPG      |2023-11-14 00:29:30.420746|
+|5       |Adventure       |2023-11-14 00:29:30.420746|
+
+ <br />
+ 
+### **Problems/Hiccups**:
+
+As I was entering the values for **```genre.name```**, I noticed a problem. There are some genres that included apostrophes within their names, and naturally, this would mean it would close the character strings when entering values. Take the name ***Beat-'Em Up*** for example:
+
+ <br />
+ 
+```sql
+INSERT INTO genre(name, last_update)
+VALUES
+  ('Beat-'Em Up', CURRENT_TIMESTAMP),
+
+```
+
+ <br />
+ 
+As shown above, the name ***“Beat-’Em-Up”*** technically ends the character entry at ***“Beat-”***. In times like these, I always check for [documentation](https://www.postgresql.org/docs/7.4/functions-string.html). When encasing the name in single quotes, it will become a string. Although, if there is another single quote, it ends the string. Therefore, we must make the apostrophe a **literal string** by using **```\s```** or **```''```** to bypass it:
+
+ <br />
+ 
+```sql
+INSERT INTO genre(name, last_update)
+VALUES
+  ('Beat-''Em Up', CURRENT_TIMESTAMP),
+
+```
+✅ **Result:**
+|genre_id|name            |last_update               |
+|--------|----------------|--------------------------|
+|8       |Beat-'Em Up     |2023-11-14 00:29:30.420746|
+
+ <br />
+
+Now it works! **I will not show the creation for the ```developer``` and ```publisher``` database as the overall process is the same**.
+
+---
+Now that I have familiarized myself with creating tables and inserting values, I moved on to the biggest one, the **```Nintendo.game```** table.
+
+> The **```Nintendo.game```** database is the table that will take a majority of my time as there are about 1000 games rated on Metacritic. As of right now, I have the first 100 games I entered in the database which is more than enough to explain the process here.
+
+Creating parameters for each column was very important here. I am keeping in mind what I would like to do and am adjusting on the fly. Other than researching which games were released since the start of the Nintendo Switch, the hardest part was inserting all of the titles into the database. As far as I know, there is no simple way to add the values without importing them from Excel or Google Sheets. I wanted to challenge myself by manually adding each game myself.
+
+
+
+
+
+
+---
+Moving on to the **```game_category```** database, 
+
+
+
+
+
+
 
 
 ---
