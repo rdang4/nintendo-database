@@ -18,6 +18,8 @@
 
      a. [Genre Table](#a-genre)
 
+     b. [Game Table](#b-game)
+
 ---
 ## Table Relationships
 The brainstorming process was unfamiliar to me as I needed to determine how to arrange each column to be inserted into a table. I decided to create a workflow diagram to visualize each and every table that was going to be created. You never know how much writing or visualizing your ideas helps until it is done!
@@ -133,7 +135,8 @@ VALUES
 
 ```
 ```sql
-SELECT * FROM genre;
+SELECT * FROM genre
+LIMIT 5;
 ```
 ✅ **Result:**
 |genre_id|name            |last_update               |
@@ -181,6 +184,7 @@ VALUES
 Now it works! **I will not show the creation for the ```developer``` and ```publisher``` database as the overall process is the same**.
 
 ---
+### b. Game
 Now that I have familiarized myself with creating tables and inserting values, I moved on to the biggest one, the **```Nintendo.game```** table.
 
 > The **```Nintendo.game```** database is the table that will take a majority of my time as there are about 1000 games rated on Metacritic. As of right now, I have the first 100 games I entered in the database which is more than enough to explain the process here.
