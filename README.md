@@ -5,7 +5,7 @@
 
 A personal passion project that showcases database collection of Nintendo games. Information will include; game titles, genre, ratings, sales, and more.
 
-> **Updates (12/04/2023): Added more into the [Citations](#citations-) section and the READEME in [Methodology](). I am currently adding more titles into my database and typing up a report.**
+> **Updates (12/04/2023): Added more into the [Citations](#citations-) section and the READEME in [Methodology](/Methodology%20(SQL)). I am currently adding more titles into my database and typing up a report.**
 
 
 # Table of Contents 📋
