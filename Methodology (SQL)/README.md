@@ -16,6 +16,7 @@
 
 4. [Table Creation](#table-creation)
 
+     a. [Genre Table](#a-genre)
 
 ---
 ## Table Relationships
