@@ -189,13 +189,57 @@ Now that I have familiarized myself with creating tables and inserting values, I
 
 > The **```Nintendo.game```** database is the table that will take a majority of my time as there are about 1000 games rated on Metacritic. As of right now, I have the first 100 games I entered in the database which is more than enough to explain the process here.
 
-Creating parameters for each column was very important here. I am keeping in mind what I would like to do and am adjusting on the fly. Other than researching which games were released since the start of the Nintendo Switch, the hardest part was inserting all of the titles into the database. As far as I know, there is no simple way to add the values without importing them from Excel or Google Sheets. I wanted to challenge myself by manually adding each game myself.
+Creating parameters for each column was very important here. I am keeping in mind what I would like to do and am adjusting on the fly. Other than researching which games were released since the start of the Nintendo Switch, the hardest part was inserting all of the titles into the database. As far as I know, there is no simple way to add the values without importing them from Excel or Google Sheets. I wanted to challenge myself by manually adding each game myself. Here is what I came up with:
 
+ <br />
+ 
+```sql
+CREATE TABLE game
+(
+  game_id SERIAL PRIMARY KEY,
+  title VARCHAR(500) UNIQUE NOT NULL,
+  release_date DATE,
+  esrb VARCHAR(10),
+  console VARCHAR(50),
+  metascore SMALLINT,
+  user_score NUMERIC(3,1),
+  sales_mil NUMERIC(5,3),
+  details TEXT
+);
 
+```
 
+ <br />
 
+I am very much aware that some smaller games will not have the sales or general information available. To avoid any standard deviations, any games that are not known as well will be entered as **NULL** while the **games that are not rated on Metacritic will not be listed in the database**. **All sales information will be converted to units of a million.** Also, keep in mind that sales information is not readily available (for legal reasons). **Numbers of sales on the Switch console will be rough estimates according to the VGChartz website.** In the process of adding more game titles, there are games that include Skylanders Imaginators, I Am Setsuna, or Metal Slug that are ported from older consoles. I will not include sales information from these games as this project is mainly focused on first party Nintendo Switch games.
 
+Here is an example of the values I inserted into the database:
 
+ <br />
+ 
+```sql
+INSERT INTO game(title, release_date, esrb, console, metascore,
+                 user_score, sales_mil)
+VALUES
+     ('The Legend of Zelda: Breath of the Wild', '2017-03-03', 'E', 'Switch', '97',
+      '8.7', '31.15'),
+     ('Super Mario Odyssey', '2017-10-27', 'E10+', 'Switch', '97',
+      '8.9', '26.95'),
+     ('Persona 5 Royal', '2022-10-21', 'M', 'Switch', '94',
+      '8.6', '4.0');
+
+```
+✅ **Result:**
+|game_id |title                                   |release_date|esrb|console|metascore|user_score|sales_mil|
+|--------|----------------------------------------|------------|----|-------|---------|----------|---------|
+|1       |The Legend of Zelda: Breath of the Wild |2017-03-03  |E   |Switch |97       |8.7       |31.150   |
+|2       |Super Mario Odyssey                     |2017-10-27  |E10+|Switch |97       |8.9       |26.950   |
+|3       |Persona 5 Royal                         |2022-10-21  |M   |Switch |94       |8.6       |4.000    |
+
+ <br />
+
+> I added another column called **```details```**, but I took it out to shorten the chart a bit.
+ 
 ---
 Moving on to the **```game_category```** database, 
 
