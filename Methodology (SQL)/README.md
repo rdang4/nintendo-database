@@ -153,7 +153,7 @@ LIMIT 5;
 
 As I was entering the values for **```genre.name```**, I noticed a problem. There are some genres that included apostrophes within their names, and naturally, this would mean it would close the character strings when entering values. Take the name ***Beat-'Em Up*** for example:
 
- <br />
+<br />
  
 ```sql
 INSERT INTO genre(name, last_update)
@@ -243,6 +243,13 @@ VALUES
 <br />
 
 ### 🟥 **Problems/Hiccups**:
+
+There were quite a few problems I encountered during this process.
+
+* The **```TO_DATE```** function. I preferred showing the name of the month followed by the number of day and then the year. I did learn afterward that it was probably better to store dates in a dedicated **```DATE```** column. For example: **"2017-03-03"** compared to **"Mar-03-2017"**. A lot of trial and error, but I settled with the default format.
+* Initially when creating the **```Nintendo.game```** table, I set the parameters for each column to be **```VARCHAR```**. This made no sense as scores and sale numbers are considered to be numerical integers. I made the changes accordingly.
+
+<br />
 
 ---
 Moving on to the **```game_category```** database, 
