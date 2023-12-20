@@ -20,6 +20,8 @@
 
      b. [Game Table](#b-game)
 
+     c. [Game Category Table](#c-game-category-table)
+
 ---
 ## Table Relationships
 The brainstorming process was unfamiliar to me as I needed to determine how to arrange each column to be inserted into a table. I decided to create a workflow diagram to visualize each and every table that was going to be created. You never know how much writing or visualizing your ideas helps until it is done!
@@ -253,7 +255,7 @@ There were quite a few problems I encountered during this process.
 <br />
 
 ---
-### c. Game Category
+### c. Game Category Table
 
 Moving on to the **```game_category```** database (which I would like to call the middle-man), I needed to find a way to transfer all the values of **```game_id```** from **```Nintendo.game```** into this table. This was so I could avoid having to individually type the same numbers. I took into consideration how I am able to continuously add more *game ids* into the table because new game titles will eventually be added into **```Nintendo.game```**. Therefore, a new unique **```game_id```** would be inserted into **```game_category```**.
 
