@@ -309,6 +309,8 @@ SET genre_id = 5,
     last_update = CURRENT_TIMESTAMP
 WHERE game_id IN (108,111,112,135,139);  
 ```
+> **```genre_id```** = 5 in this case refers to the name **Adventure**. Basically setting each **```game_id```** mentioned within the parenthesis with the genre name **Adventure**.
+
 <br />
 
 
