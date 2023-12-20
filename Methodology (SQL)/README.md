@@ -257,15 +257,83 @@ There were quite a few problems I encountered during this process.
 
 Moving on to the **```game_category```** database (which I would like to call the middle-man), I needed to find a way to transfer all the values of **```game_id```** from **```Nintendo.game```** into this table. This was so I could avoid having to individually type the same numbers. I took into consideration how I am able to continuously add more *game ids* into the table because new game titles will eventually be added into **```Nintendo.game```**. Therefore, a new unique **```game_id```** would be inserted into **```game_category```**.
 
-For each **```game_id```** listed in the **```Nintendo.game```** table, the **```genre_id```** will be assigned to it. **This would mean that we will have multiple *game ids* that have the same *genre*.**
+For each **```game_id```** listed in the **```Nintendo.game```** table, the **```genre_id```** will be assigned to it. **This would mean that we will have multiple *game ids* that have the same *genre*.** First, lets start with the table creation:
 
+ <br />
+ 
+```sql
+CREATE TABLE game_category
+(
+  game_id SERIAL PRIMARY KEY,
+  genre_id SMALLINT NOT NULL,
+  last_update TIMESTAMP NOT NULL
+);
 
+```
 
+ <br />
 
+Now, let's add the **```game_id```** column from **```Nintendo.game```**:
 
+ <br />
+ 
+```sql
+INSERT INTO game_category (game_id)
+SELECT game.game_id
+FROM game
+WHERE game.game_id NOT IN (SELECT game_id FROM game_category);
 
+```
 
+ <br />
 
+### 🟥 **Problems/Hiccups**:
+
+My first thought was that I wanted to understand whether or not I was able to transfer the primary key **```game_id```** from **```Nintendo.game```** into **```game_category```**. This was my first shot at it:
+
+ <br />
+ 
+```sql
+INSERT INTO game_category (game_id)
+SELECT game_id
+FROM game;
+
+```
+
+ <br />
+
+After adding the **```genre_id```** to each **```game_id```**, I used **INNER JOIN** to output tables associated with the game and genre table to check how my table was looking so far. I am glad to say that it works!!
+
+ <br />
+ 
+```sql
+SELECT game.game_id, game.title, genre.genre_id, genre.name, game.esrb FROM game
+INNER JOIN game_category
+ON game.game_id = game_category.game_id
+INNER JOIN genre
+ON game_category.genre_id = genre.genre_id
+ORDER BY game_id
+LIMIT 10;
+
+```
+✅ **Result:**
+|game_id |title                                   |genre_id |name           |esrb |
+|--------|----------------------------------------|---------|---------------|-----|
+|1       |Fast RMX                                |25       |Racing         |E    |
+|2       |I Am Setsuna                            |41       |JRPG           |E10+ |
+|3       |Just Dance 2017                         |42       |Dancing        |E10+ |
+|4       |Shovel Knight: Spectre of Torment       |22       |Platformer     |E    |
+|5       |Shovel Knight: Treasure Trove           |22       |Platformer     |E    |
+|6       |Skylanders Imaginators                  |22       |Platformer     |E10+ |
+|7       |Snipperclips - Cut it out, together!    |23       |Puzzle         |E    |
+|8       |Super Bomberman R                       |23       |Puzzle         |E10+ |
+|9       |1-2 Switch                              |20       |Party/Minigame |E10+ |
+|10      |The Legend of Zelda: Breath of the Wild |19       |Open-World     |E10+ |
+
+ <br />
+
+I was able to select the columns that I wanted to be outputted, **INNER JOIN ```game_category```** because of **```game_id```**, and **INNER JOIN ```genre```** because of **```genre_id```**. 
+ 
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
