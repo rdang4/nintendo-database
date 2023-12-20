@@ -246,11 +246,10 @@ VALUES
 
 ### 🟥 **Problems/Hiccups**:
 
-There were quite a few problems I encountered during this process.
+There were a couple problems I encountered during this process:
 
 * The **```TO_DATE```** function. I preferred showing the name of the month followed by the number of day and then the year. I did learn afterward that it was probably better to store dates in a dedicated **```DATE```** column. For example: **"2017-03-03"** compared to **"Mar-03-2017"**. A lot of trial and error, but I settled with the default format.
 * Initially when creating the **```Nintendo.game```** table, I set the parameters for each column to be **```VARCHAR```**. This made no sense as scores and sale numbers are considered to be numerical integers. I made the changes accordingly.
-* 
 
 <br />
 
@@ -334,7 +333,7 @@ LIMIT 10;
 
  <br />
 
-I was able to select the columns that I wanted to be outputted, **INNER JOIN ```game_category```** because of **```game_id```**, and **INNER JOIN ```genre```** because of **```genre_id```**. 
+> I was able to select the columns that I wanted to be outputted, **INNER JOIN ```game_category```** because of **```game_id```**, and **INNER JOIN ```genre```** because of **```genre_id```**. 
  
 ---
 
