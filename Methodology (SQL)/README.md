@@ -248,11 +248,16 @@ There were quite a few problems I encountered during this process.
 
 * The **```TO_DATE```** function. I preferred showing the name of the month followed by the number of day and then the year. I did learn afterward that it was probably better to store dates in a dedicated **```DATE```** column. For example: **"2017-03-03"** compared to **"Mar-03-2017"**. A lot of trial and error, but I settled with the default format.
 * Initially when creating the **```Nintendo.game```** table, I set the parameters for each column to be **```VARCHAR```**. This made no sense as scores and sale numbers are considered to be numerical integers. I made the changes accordingly.
+* 
 
 <br />
 
 ---
-Moving on to the **```game_category```** database, 
+### c. Game Category
+
+Moving on to the **```game_category```** database (which I would like to call the middle-man), I needed to find a way to transfer all the values of **```game_id```** from **```Nintendo.game```** into this table. This was so I could avoid having to individually type the same numbers. I took into consideration how I am able to continuously add more *game ids* into the table because new game titles will eventually be added into **```Nintendo.game```**. Therefore, a new unique **```game_id```** would be inserted into **```game_category```**.
+
+For each **```game_id```** listed in the **```Nintendo.game```** table, the **```genre_id```** will be assigned to it. **This would mean that we will have multiple *game ids* that have the same *genre*.**
 
 
 
