@@ -306,7 +306,7 @@ Lastly, I need to **update every **```genre_id```** to each respective **```game
 ```sql
 UPDATE game_category
 SET genre_id = 5,
-	last_update = CURRENT_TIMESTAMP
+    last_update = CURRENT_TIMESTAMP
 WHERE game_id IN (108,111,112,135,139);  
 ```
 <br />
