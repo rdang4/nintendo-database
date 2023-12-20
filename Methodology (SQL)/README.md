@@ -21,6 +21,8 @@
      b. [Game Table](#b-game)
 
      c. [Game Category Table](#c-game-category-table)
+   
+5. [Questions and Answers](#questions-and-answers)
 
 ---
 ## Table Relationships
@@ -335,7 +337,15 @@ LIMIT 10;
  <br />
 
 > I was able to select the columns that I wanted to be outputted, **INNER JOIN ```game_category```** because of **```game_id```**, and **INNER JOIN ```genre```** because of **```genre_id```**. 
- 
+
+
+---
+## Questions and Answers
+
+
+
+
+
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
