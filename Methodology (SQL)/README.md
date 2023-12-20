@@ -115,7 +115,6 @@ CREATE TABLE genre
   name VARCHAR(50) NOT NULL,
   last_update TIMESTAMP NOT NULL
 );
-
 ```
 
  <br /> 
@@ -136,7 +135,6 @@ VALUES
   ('Action Puzzle', CURRENT_TIMESTAMP),
   ('Action RPG', CURRENT_TIMESTAMP),
   ('Adventure', CURRENT_TIMESTAMP);
-
 ```
 ```sql
 SELECT * FROM genre
@@ -163,7 +161,6 @@ As I was entering the values for **```genre.name```**, I noticed a problem. Ther
 INSERT INTO genre(name, last_update)
 VALUES
   ('Beat-'Em Up', CURRENT_TIMESTAMP),
-
 ```
 
  <br />
@@ -176,7 +173,6 @@ As shown above, the name ***“Beat-’Em-Up”*** technically ends the characte
 INSERT INTO genre(name, last_update)
 VALUES
   ('Beat-''Em Up', CURRENT_TIMESTAMP),
-
 ```
 ✅ **Result:**
 |genre_id|name            |last_update               |
@@ -210,7 +206,6 @@ CREATE TABLE game
   sales_mil NUMERIC(5,3),
   details TEXT
 );
-
 ```
 
  <br />
@@ -231,7 +226,6 @@ VALUES
       '8.9', '26.95'),
      ('Persona 5 Royal', '2022-10-21', 'M', 'Switch', '94',
       '8.6', '4.0');
-
 ```
 ✅ **Result:**
 |game_id |title                                   |release_date|esrb|console|metascore|user_score|sales_mil|
@@ -271,7 +265,6 @@ CREATE TABLE game_category
   genre_id SMALLINT NOT NULL,
   last_update TIMESTAMP NOT NULL
 );
-
 ```
 
  <br />
@@ -285,7 +278,6 @@ INSERT INTO game_category (game_id)
 SELECT game.game_id
 FROM game
 WHERE game.game_id NOT IN (SELECT game_id FROM game_category);
-
 ```
 
  <br />
@@ -300,15 +292,29 @@ My first thought was that I wanted to understand whether or not I was able to tr
 INSERT INTO game_category (game_id)
 SELECT game_id
 FROM game;
-
 ```
 > The problem was that if this query was being used, it would not account for the duplicate **```game_id```** being transferred. If primary key for **```game_id```** number 1 was already transferred, it cannot be done again. Therefore, I had to find a way to select the values that are not already in **```game_category```** for the output to run. Hence, the original query was made above.
 
  <br />
 
-After adding the **```genre_id```** to each **```game_id```**, I used **INNER JOIN** to output tables associated with the game and genre table to check how my table was looking so far. I am glad to say that it works!!
 
- <br />
+Lastly, I need to **update every **```genre_id```** to each respective **```game_id```**.** This was a very tedious process as I am constantly going back and forth between windows to find the genres. I noted every new game I entered down on a Notepad window and typed down their genre names. Unless there is a better way of updating values, I went with this for example:
+
+
+<br />
+ 
+```sql
+UPDATE game_category
+SET genre_id = 5,
+	last_update = CURRENT_TIMESTAMP
+WHERE game_id IN (108,111,112,135,139);  
+```
+<br />
+
+
+I used **INNER JOIN** to output tables associated with the game and genre table to check how my table was looking so far. I am glad to say that it works!!
+
+<br />
  
 ```sql
 SELECT game.game_id, game.title, genre.genre_id, genre.name, game.esrb FROM game
@@ -318,7 +324,6 @@ INNER JOIN genre
   ON game_category.genre_id = genre.genre_id
 ORDER BY game_id
 LIMIT 10;
-
 ```
 ✅ **Result:**
 |game_id |title                                   |genre_id |name           |esrb |
@@ -334,7 +339,8 @@ LIMIT 10;
 |9       |1-2 Switch                              |20       |Party/Minigame |E10+ |
 |10      |The Legend of Zelda: Breath of the Wild |19       |Open-World     |E10+ |
 
- <br />
+<br />
+
 
 > I was able to select the columns that I wanted to be outputted, **INNER JOIN ```game_category```** because of **```game_id```**, and **INNER JOIN ```genre```** because of **```genre_id```**. 
 
