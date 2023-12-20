@@ -300,7 +300,7 @@ SELECT game_id
 FROM game;
 
 ```
-> The problem was that if this query was being used, it would not account for the duplicate **```game_id```** being transferred. If primary key for **```game_id```** number 1 was already transferred, it cannot be done again. Therefore, I had to find a way to select the values that are not already in game_category for the output to run. 
+> The problem was that if this query was being used, it would not account for the duplicate **```game_id```** being transferred. If primary key for **```game_id```** number 1 was already transferred, it cannot be done again. Therefore, I had to find a way to select the values that are not already in game_category for the output to run. Hence, the original query was made above.
 
  <br />
 
