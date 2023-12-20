@@ -309,9 +309,9 @@ After adding the **```genre_id```** to each **```game_id```**, I used **INNER JO
 ```sql
 SELECT game.game_id, game.title, genre.genre_id, genre.name, game.esrb FROM game
 INNER JOIN game_category
-ON game.game_id = game_category.game_id
+  ON game.game_id = game_category.game_id
 INNER JOIN genre
-ON game_category.genre_id = genre.genre_id
+  ON game_category.genre_id = genre.genre_id
 ORDER BY game_id
 LIMIT 10;
 
