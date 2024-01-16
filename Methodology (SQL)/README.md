@@ -210,7 +210,9 @@ CREATE TABLE game
 
  <br />
 
-I am very much aware that some smaller games will not have the sales or general information available. To avoid any standard deviations, any games that are not known as well will be entered as **NULL** while the **games that are not rated on Metacritic will not be listed in the database**. **All sales information will be converted to units of a million.** Also, keep in mind that sales information is not readily available (for legal reasons). **Numbers of sales on the Switch console will be rough estimates according to the VGChartz website.** In the process of adding more game titles, there are games that include Skylanders Imaginators, I Am Setsuna, or Metal Slug that are ported from older consoles. I will not include sales information from these games as this project is mainly focused on first party Nintendo Switch games.
+I am very much aware that some smaller games will not have the sales or general information available. To avoid any standard deviations, any games that are not known as well will be entered as **NULL** while the **games that are not rated on Metacritic will not be listed in the database**. **All sales information will be converted to units of a million.** Also, keep in mind that sales information is not readily available (for legal reasons). **Numbers of sales on the Switch console will be rough estimates according to the VGChartz website.** In the process of adding more game titles, there are games that include Skylanders Imaginators, I Am Setsuna, or Metal Slug that are ported from older consoles. I will not include sales information from these games as this project is mainly focused on first party Nintendo Switch games. 
+
+> As of January, I decided to change the way I inserted values into the query below. Rather than individually type in the values I placed a majority of the values into an Excel sheet and used the CONCATENATE function to create the line of code I needed. CONCATENATE allows me to simply copy and paste the line of text into my query and with a few changes here and there, I can achieve the same result as if I were to do it individually. Finding a faster way of doing slow and tedious work is VERY exciting. 
 
 Here is an example of the values I inserted into the database:
 
@@ -300,6 +302,8 @@ FROM game;
 
 Lastly, I need to **update every **```genre_id```** to each respective **```game_id```**.** This was a very tedious process as I am constantly going back and forth between windows to find the genres. I noted every new game I entered down on a Notepad window and typed down their genre names. Unless there is a better way of updating values, I went with this for example:
 
+> I found a way to cancel the query if there is already a **```genre_id```** with a value **OR** a **```genre_id```** that is not the listed ID number. I decided to add in the 5th line below to check for filled values.
+
 
 <br />
  
@@ -307,7 +311,8 @@ Lastly, I need to **update every **```genre_id```** to each respective **```game
 UPDATE game_category
 SET genre_id = 5,
     last_update = CURRENT_TIMESTAMP
-WHERE game_id IN (108,111,112,135,139);  
+WHERE game_id IN (108,111,112,135,139)
+    AND (genre_id IS NULL OR genre_id != 33);  
 ```
 > **```genre_id```** = 5 in this case refers to the name **Adventure** as noted under [Table Creation](#table-creation). Basically setting each **```game_id```** mentioned within the parenthesis with the genre name **Adventure**.
 
