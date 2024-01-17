@@ -302,7 +302,7 @@ FROM game;
 
 Lastly, I need to **update every **```genre_id```** to each respective **```game_id```**.** This was a very tedious process as I am constantly going back and forth between windows to find the genres. I noted every new game I entered down on a Notepad window and typed down their genre names. Unless there is a better way of updating values, I went with this for example:
 
-> I found a way to cancel the query if there is already a **```genre_id```** with a value **OR** a **```genre_id```** that is not the listed ID number. I decided to add in the 5th line below to check for filled values.
+> I found a way to cancel the query if there is already a **```genre_id```** with a value **OR** a **```genre_id```** that is not the listed ID number. I decided to add in the **5th line below** to check for filled values.
 
 
 <br />
@@ -354,6 +354,18 @@ LIMIT 10;
 
 ---
 ## Questions and Answers
+
+I will be sure to provide a full SQL documentation in a seperate file for those that just want to see the bulk of code rather than read through such a SUEPR big wall of text. I treated this like a "research" project paper I have always done in school, so it is always nice to go back and reapply what I did in other projects. On to the questions! I wanted to emulate a bunch of questions that could be asked by a company
+
+### ❕ Question 1
+
+**What are the top 3 genres of all games published by Nintendo?**
+
+When deciding on what important identifiers are going to be used in this case, I went back to the [Table Relationships](#table-relationships) section to see what I can implement. The most important part of this question was to generate the **```genre_count```** of all genres and out of all of them, only **display games that were published by Nintendo**.
+
+Specifically, I will have to:
+
+> INNER JOIN the **game_category** and **genre** tables with the **publisher** table in order to match each **```genre_id```** to its publisher. Afterwards, I will be able to narrow the results according to Nintendo.
 
 
 
