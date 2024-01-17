@@ -420,7 +420,7 @@ LIMIT 5;
 
 <br />
 
-
+There is our answer for Question 1! The top 3 genres published by Nintendo are Platformers, RPG's, and Open-World titles. Before diving into this question, it was pretty obvious to me that Nintendo's popular genres involved platforming. We have multiple series that became classics like Super Mario Bros., Kirby, Metroid, Yoshi, and more.
 
 ---
 
