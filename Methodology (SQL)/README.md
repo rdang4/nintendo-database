@@ -264,8 +264,8 @@ For each **```game_id```** listed in the **```Nintendo.game```** table, the **``
 CREATE TABLE game_category
 (
   game_id SERIAL PRIMARY KEY,
-  genre_id SMALLINT NOT NULL,
-  last_update TIMESTAMP NOT NULL
+  genre_id SMALLINT,
+  last_update TIMESTAMP
 );
 ```
 
