@@ -44,11 +44,11 @@ There are a few questions that I would like to create in order to challenge myse
 
 * ❕ Question 1: Top 3 Genres 
 
-What are the top 3 genres of all games published by Nintendo?
+   What are the top 3 genres of all games published by Nintendo?
 
 * ❕ Question 2: Popular Games 
 
-Which games are the most popular out of those 3 genres?
+   Which games are the most popular out of those 3 genres?
 
 * ❕ Question 3: More Specific Questions
 <details>
