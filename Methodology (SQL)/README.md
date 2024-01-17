@@ -365,9 +365,58 @@ When deciding on what important identifiers are going to be used in this case, I
 
 Specifically, I will have to:
 
-> INNER JOIN the **game_category** and **genre** tables with the **publisher** table in order to match each **```genre_id```** to its publisher. Afterwards, I will be able to narrow the results according to Nintendo.
+> INNER JOIN the **game_category** and **genre** tables with the **publisher** and **game_publisher** table in order to match each **```genre_id```** to its publisher. Afterwards, I will be able to narrow the results according to Nintendo.
 
+<br />
+ 
+```sql
+SELECT game.game_id, game.title, game.esrb, game.metascore, game.user_score,
+	   game_publisher.publisher_id, publisher.name, genre.genre_id, genre.name 
+	   FROM game
 
+INNER JOIN game_category
+	ON game.game_id = game_category.game_id
+INNER JOIN genre
+	ON game_category.genre_id = genre.genre_id
+INNER JOIN game_publisher
+	ON game.game_id = game_publisher.game_id
+INNER JOIN publisher
+	ON game_publisher.publisher_id = publisher.publisher_id
+
+WHERE publisher.name = 'Nintendo'
+ORDER BY game_id;  
+```
+> With all the tables inner joined, I am now able to see the result of all games released by Nintendo specifically. I can fully visualize all the information laid in front of me. We will now move on to the **top 3 genres** where I will be creating **```genre_count```**.
+
+```sql
+SELECT genre.genre_id, genre.name,
+	   COUNT (*) AS genre_count
+	   FROM game
+
+INNER JOIN game_category
+	ON game.game_id = game_category.game_id
+INNER JOIN genre
+	ON game_category.genre_id = genre.genre_id
+INNER JOIN game_publisher
+	ON game.game_id = game_publisher.game_id
+INNER JOIN publisher
+	ON game_publisher.publisher_id = publisher.publisher_id
+
+WHERE publisher.name = 'Nintendo'
+GROUP BY publisher, genre.genre_id
+ORDER BY genre_count DESC
+LIMIT 5;  
+```
+✅ **Result:**
+|genre_id|name            |genre_count|
+|--------|----------------|-----------|
+|22      |Platformer      |10         |
+|24      |RPG             |7          |
+|19      |Open-World      |6          |
+|2       |Action Adventure|5          |
+|4       |Action RPG      |5          |
+
+<br />
 
 
 
