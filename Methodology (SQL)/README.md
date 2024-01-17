@@ -407,6 +407,8 @@ GROUP BY publisher, genre.genre_id
 ORDER BY genre_count DESC
 LIMIT 5;  
 ```
+> We select **genre_id** and **name** from the genre table and the count of every genre which will be named **```genre_count```**. It is important to specify **Nintendo** using the **WHERE** clause from the **publisher table** in order to count those rows. Then group **publishers** and **genre_id** which leads to my result:
+
 ✅ **Result:**
 |genre_id|name            |genre_count|
 |--------|----------------|-----------|
