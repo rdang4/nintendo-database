@@ -453,28 +453,70 @@ INNER JOIN publisher
 	ON game_publisher.publisher_id = publisher.publisher_id
 
 WHERE publisher.name = 'Nintendo' 
-AND genre.name = 'Platformer'
+AND genre.name IN ('Platformer', 'RPG', 'Open-World')
 
 ORDER BY metascore DESC;
 ```
 > Since the question asks for the most popular games, the most important columns to use will be **game.title** and **game.metascore** from the game table. This is **part 1** of the question.
 
 ✅ **Result:**
-|title                               |genre_count |
-|------------------------------------|------------|
-|Super Mario Odyssey                 |97          |
-|Super Mario Bros. Wonder            |92          |
-|Super Mario 3D World + Bowser's Fury|89          |
-|Metroid Dread			     |88          |
-|Super Mario Maker 2      	     |88          |
-|Donkey Kong Country: Tropical Freeze|86          |
-|Kirby and the Forgotten Land        |85          |
-|New Super Mario Bros. U Deluxe      |80          |
-|Yoshie's Crafted World      	     |79          |
-|Kirby's Return to Dream Land Deluxe |79          |
+|title                              	  |metascore   |
+|-----------------------------------------|------------|
+|Super Mario Odyssey                 	  |97          |
+|The Legend of Zelda: Breath of the Wild  |97          |
+|The Legend of Zelda: Tears of the Kingdom|96          |
+|Super Mario Bros. Wonder		  |92          |
+|Super Mario 3D World + Bowser's Fury     |89          |
+|Metroid Dread				  |88          |
+|Super Mario Maker 2       	  	  |88          |
+|The Legend of Zelda: Link's Awakening    |87          |
+|Donkey Kong Country: Tropical Freeze     |86          |
+|Kirby and the Forgotten Land		  |85          |
 
 <br />
 
+There we go! Our top 10 most popular games It is not a surprise at this point, but it is clear that the Super Mario series is the most popular amongst the Metacritic team. For decades, Super Mario has reach so many gamers in the world and to still see the enormous fanbase today is amazing. Ever since the first release of The Legend of Zelda: Breath of the Wild on the Switch, it surprised a lot of people how much the Switch was able to perform well with such a HUGE game. Ever since this release, I feel like Nintendo has only released many great games in this series.
+
+Now for part 2, I will gather the most popular games published by Nintendo within the top 3 genres listed above using the user scores:
+
+<br />
+ 
+```sql
+SELECT game.title, game.user_score FROM game
+
+INNER JOIN game_category
+	ON game.game_id = game_category.game_id
+INNER JOIN genre
+	ON game_category.genre_id = genre.genre_id
+INNER JOIN game_publisher
+	ON game.game_id = game_publisher.game_id
+INNER JOIN publisher
+	ON game_publisher.publisher_id = publisher.publisher_id
+
+WHERE publisher.name = 'Nintendo' 
+AND genre.name IN ('Platformer', 'RPG', 'Open-World')
+
+ORDER BY metascore DESC;
+```
+> The most important columns to use will be **game.title** and **game.user_score** from the game table. This is **part 2** of the question.
+
+✅ **Result:**
+|title                              	  |user_score  |
+|-----------------------------------------|------------|
+|Super Mario Bros. Wonder                 |9.1         |
+|Donkey Kong Country: Tropical Freeze     |9.0         |
+|Super Mario Odyssey			  |8.9         |
+|Kirby and the Forgotten Land		  |8.8         |
+|Kirby's Return to Dream Land Deluxe      |8.8         |
+|Metroid Dread				  |8.7         |
+|Super Mario 3D World + Bowser's Fury     |8.7         |
+|The Legend of Zelda: Breath of the Wild  |8.7         |
+|Super Mario Maker 2		          |8.5         |
+|The Legend of Zelda: Link's Awakening    |8.4         |
+
+<br />
+
+I was surprised to see that Super Mario Bros. Wonder was number 1 on the list. It is the newest Super Mario Bros. game as of typing this. I can only assume that because of the recent movie, it has reached millions of kids that really enjoyed this game. I would say that it was a perfect time to release it. Other than that, Super Mario Odyssey definitely deserved a top spot on this list. It was such a different take on the Super Mario franchise that it made me want to pick up a Switch myself. 
 
 ---
 
