@@ -434,7 +434,48 @@ So our next question tasks us with finding a more specific result out of the out
 
 We can interpret this question multiple different ways:
 
-> We can use the Metacritic ratings, user scores, or game sales to find the most popular games. Since there is no accurate way of finding ALL game sales on the market, I will omit this from my findings. I decided to go with both ratings as the user scores represent the game audience while Metacritic scores is solely based on the opinions of the team associated with the website. 
+> We can use the Metacritic ratings, user scores, or game sales to find the most popular games. Since there is no accurate way of finding ALL game sales on the market, I will omit this from my findings. I decided to go with both ratings as the user scores represent the game audience while Metacritic scores is solely based on the opinions of the team associated with the website.
+
+I reused the same query as Question 1 but with a few tweaks to better represent this question:
+
+<br />
+ 
+```sql
+SELECT game.title, game.metascore FROM game
+
+INNER JOIN game_category
+	ON game.game_id = game_category.game_id
+INNER JOIN genre
+	ON game_category.genre_id = genre.genre_id
+INNER JOIN game_publisher
+	ON game.game_id = game_publisher.game_id
+INNER JOIN publisher
+	ON game_publisher.publisher_id = publisher.publisher_id
+
+WHERE publisher.name = 'Nintendo' 
+AND genre.name = 'Platformer'
+
+ORDER BY metascore DESC;
+```
+> Since the question asks for the most popular games, the most important columns to use will be **game.title** and **game.metascore** from the game table. This is **part 1** of the question.
+
+✅ **Result:**
+|title                               |genre_count |
+|------------------------------------|------------|
+|Super Mario Odyssey                 |97          |
+|Super Mario Bros. Wonder            |92          |
+|Super Mario 3D World + Bowser's Fury|89          |
+|Metroid Dread			     |88          |
+|Super Mario Maker 2      	     |88          |
+|Donkey Kong Country: Tropical Freeze|86          |
+|Kirby and the Forgotten Land        |85          |
+|New Super Mario Bros. U Deluxe      |80          |
+|Yoshie's Crafted World      	     |79          |
+|Kirby's Return to Dream Land Deluxe |79          |
+
+<br />
+
+
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
