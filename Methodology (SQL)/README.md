@@ -459,7 +459,7 @@ ORDER BY metascore DESC;
 ```
 > Since the question asks for the most popular games, the most important columns to use will be **game.title** and **game.metascore** from the game table. This is **part 1** of the question.
 
-✅ **Result:**
+✅ **Result Part 1:**
 |title                              	  |metascore   |
 |-----------------------------------------|------------|
 |Super Mario Odyssey                 	  |97          |
@@ -500,7 +500,7 @@ ORDER BY metascore DESC;
 ```
 > The most important columns to use will be **game.title** and **game.user_score** from the game table. This is **part 2** of the question.
 
-✅ **Result:**
+✅ **Result Part 2:**
 |title                              	  |user_score  |
 |-----------------------------------------|------------|
 |Super Mario Bros. Wonder                 |9.1         |
