@@ -357,6 +357,8 @@ LIMIT 10;
 
 I will be sure to provide a full SQL documentation in a seperate file for those that just want to see the bulk of code rather than read through such a SUEPR big wall of text. I treated this like a "research" project paper I have always done in school, so it is always nice to go back and reapply what I did in other projects. On to the questions! I wanted to emulate a bunch of questions that could be asked by a company
 
+<br />
+
 ### ❕ Question 1
 
 **What are the top 3 genres of all games published by Nintendo?**
@@ -422,6 +424,17 @@ LIMIT 5;
 
 There is our answer for Question 1! **The top 3 genres published by Nintendo are Platformers, RPG's, and Open-World titles.** Before diving into this question, it was pretty obvious to me that Nintendo's popular genres involved platforming. We have multiple series that became classics like Super Mario Bros., Kirby, Metroid, Yoshi, and more.
 
+<br />
+
+### ❕ Question 2
+
+**Which games are the most popular out of those 3 genres?**
+
+So our next question tasks us with finding a more specific result out of the output from Question 1. Rather than look through and count all games published by Nintendo again, I have already found the top 3 genres: Platformer, RPG, and Open-World. 
+
+We can interpret this question multiple different ways:
+
+> We can use the Metacritic ratings, user scores, or game sales to find the most popular games. Since there is no accurate way of finding ALL game sales on the market, I will omit this from my findings. I decided to go with both ratings as the user scores represent the game audience while Metacritic scores is solely based on the opinions of the team associated with the website. 
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
