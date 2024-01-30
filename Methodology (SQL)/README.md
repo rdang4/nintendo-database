@@ -528,6 +528,12 @@ I was surprised to see that Super Mario Bros. Wonder was number 1 on the list. I
 
 **Question 3.1: Does the ESRB rating affect the amount of sales of Nintendo games?**
 
+With the amount of data I was able to gather for game sales on the Switch, will the ESRB rating have more sales? 
+
+> I hypothesize that ESRB ratings with an E or E10+ will garner more sales because of the amount of children that do play Nintendo games. Looking at the Super Mario Bros. series, it seems like a safe bet.
+
+The goal of this question is to **gather the total amount of sales of all games in the database for each ESRB rating (E, E10+, T, and M)**. I will denote the total game sales as **```total_sales```**.
+
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
