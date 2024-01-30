@@ -536,6 +536,30 @@ With the amount of data I was able to gather for game sales on the Switch, will 
 
 The goal of this question is to **gather the total amount of sales of all games in the database for each ESRB rating (E, E10+, T, and M)**. I will denote the total game sales as **```total_sales```**.
 
+<br />
+
+```sql
+SELECT game.esrb,
+     SUM(sales_mil) AS total_sales
+     FROM game
+GROUP BY esrb;
+```
+> This question will only involve the game table, therefore I do not need to do any joins to get my solution. This was relatively simple now that I worked out the problem, but here is my output!
+
+✅ **Result:**
+|esrb    |total_sales     |
+|--------|----------------|
+|RP      |[null]          |
+|E       |328.330         |
+|E10+    |184.400         |
+|T       |36.560 	  |
+|M       |13.520          |
+
+And just as expected my hypothesis was correct! With so many popular games released with an ESRB rating of E and E10+, it makes sense that the **```total_sales```** in millions will be at the top of the list. The ESRB rating of **RP means Rating Pending**, therefore it does not have a rating yet. We will ignore RP because there is no value for it. 
+
+<br />
+
+
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
