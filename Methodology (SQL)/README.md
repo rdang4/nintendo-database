@@ -526,7 +526,9 @@ I was surprised to see that Super Mario Bros. Wonder was number 1 on the list. I
 
 > I decided to ask myself more questions in this section in order to learn more and get accustomed to different key words and parameters. 
 
-**Question 3.1: Does the ESRB rating affect the amount of sales of Nintendo games?**
+
+* **Question 3.1: Does the ESRB rating affect the amount of sales of Nintendo games?**
+
 
 With the amount of data I was able to gather for game sales on the Switch, will the ESRB rating have more sales? 
 
