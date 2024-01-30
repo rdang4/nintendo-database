@@ -518,6 +518,16 @@ ORDER BY metascore DESC;
 
 I was surprised to see that Super Mario Bros. Wonder was number 1 on the list. It is the newest Super Mario Bros. game as of typing this. I can only assume that because of the recent movie, it has reached millions of kids that really enjoyed this game. I would say that it was a perfect time to release it. Other than that, Super Mario Odyssey definitely deserved a top spot on this list. It was such a different take on the Super Mario franchise that it made me want to pick up a Switch myself. 
 
+<br />
+
+### ❕ Question 3
+
+**More Specific Questions**
+
+> I decided to ask myself more questions in this section in order to learn more and get accustomed to different key words and parameters. 
+
+**Question 3.1: Does the ESRB rating affect the amount of sales of Nintendo games?**
+
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
