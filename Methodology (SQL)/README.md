@@ -571,7 +571,7 @@ And just as expected my hypothesis was correct! With so many popular games relea
 
 * **Question 3.2: How many games did Nintendo release in their top genre?**
 
-Now, if I started fresh without joining all the tables in the previous question, the process would be the same.
+Now, if I started fresh without joining all the tables in the previous question, the process would be the same, but this time we are counting up the amount of genres.
 
 <br />
 
@@ -593,16 +593,19 @@ GROUP BY publisher.name, genre.name
 ORDER BY genre_count DESC
 LIMIT 1;
 ```
-> First, I made a count of all the genres placed under the column called **```genre_count```** and I received the top genre.
 
 ✅ **Result:**
 |name            |genre_count|
 |----------------|-----------|
 |Platformer      |10         |
 
-> With our top genre in mind
+> With **```genre_count```** listed, we now know that the total amount of games in the Platformer genre published by Nintendo are 10.
 
 <br />
+
+* **Question 3.3: How many more games were released in the top genre compared to the third top genre?**
+
+This will involve basic arithmetic and since there will not be a significant amount of numbers to make the math as complicated as possible, I will do it anyway. Referring back to [Question 1](#question-1) above
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
