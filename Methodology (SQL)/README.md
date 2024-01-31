@@ -388,12 +388,12 @@ INNER JOIN publisher
 WHERE publisher.name = 'Nintendo'
 ORDER BY game_id;  
 ```
-> With all the tables inner joined, I am now able to see the result of all games released by Nintendo specifically. I can fully visualize all the information laid in front of me. We will now move on to the **top 3 genres** where I will be creating **```genre_count```**.
+> With all the tables inner joined, I am now able to see the result of all games released by Nintendo specifically. I can fully visualize all the information laid in front of me. We will now move on to the **top 3 genres** where I will be creating **```avg_score```**.
 
 ```sql
-SELECT genre.genre_id, genre.name,
-	   COUNT (*) AS genre_count
-	   FROM game
+SELECT genre.genre_id, genre.name, 
+	ROUND(AVG(game.metascore), 2) AS avg_score
+	FROM game
 
 INNER JOIN game_category
 	ON game.game_id = game_category.game_id
@@ -403,22 +403,24 @@ INNER JOIN game_publisher
 	ON game.game_id = game_publisher.game_id
 INNER JOIN publisher
 	ON game_publisher.publisher_id = publisher.publisher_id
-
+	
 WHERE publisher.name = 'Nintendo'
-GROUP BY publisher, genre.genre_id
-ORDER BY genre_count DESC
+GROUP BY publisher.name, genre.name, genre.genre_id
+ORDER BY avg_score DESC
 LIMIT 5;  
 ```
-> We select **genre_id** and **name** from the genre table and the count of every genre which will be named **```genre_count```**. It is important to specify **Nintendo** using the **WHERE** clause from the **publisher table** in order to count those rows. Then group **publishers** and **genre_id** which leads to my result:
+> We select **genre_id** and **name** from the genre table and the **average** of every metascore which will be named **```avg_score```**. When displaying the output for the average metascore, there were **trailing zeros** at the end of each rating. I decided to take a look at the documentation and found that **```ROUND(AVG(), 2)```** does a great job. This means that I am able to round the number to at most 2 decimal places.
+
+> It is important to specify **Nintendo** using the **WHERE** clause from the **publisher table** in order to gather results of those rows. Then group **publisher names**, **genre names**, and **genre_id** which leads to my result:
 
 ✅ **Result:**
-|genre_id|name            |genre_count|
-|--------|----------------|-----------|
-|22      |Platformer      |10         |
-|24      |RPG             |7          |
-|19      |Open-World      |6          |
-|2       |Action Adventure|5          |
-|4       |Action RPG      |5          |
+|genre_id|name                |avg_score  |
+|--------|--------------------|-----------|
+|15      |First-Person Shooter|94.00      |
+|1       |Action              |90.00      |
+|35      |Tactics             |89.00      |
+|25      |Racing	      |87.00      |
+|19      |Open-World          |86.67      |
 
 <br />
 
@@ -542,7 +544,8 @@ The goal of this question is to **gather the total amount of sales of all games 
 SELECT game.esrb,
      SUM(sales_mil) AS total_sales
      FROM game
-GROUP BY esrb;
+GROUP BY esrb
+ORDER BY total_sales DESC;
 ```
 > This question will only involve the game table, therefore I do not need to do any joins to get my solution. This was relatively simple now that I worked out the problem, but here is my output!
 
@@ -559,7 +562,40 @@ And just as expected my hypothesis was correct! With so many popular games relea
 
 <br />
 
+* **Question 3.2: How many games did Nintendo release in their top genre?**
 
+Now, if I started fresh without joining all the tables in the previous question, the process would be the same.
+
+<br />
+
+```sql
+SELECT genre.name, COUNT(*) AS genre_count
+	FROM game
+
+INNER JOIN game_category
+	ON game.game_id = game_category.game_id
+INNER JOIN genre
+	ON game_category.genre_id = genre.genre_id
+INNER JOIN game_publisher
+	ON game.game_id = game_publisher.game_id
+INNER JOIN publisher
+	ON game_publisher.publisher_id = publisher.publisher_id
+	
+WHERE publisher.name = 'Nintendo'
+GROUP BY publisher.name, genre.name
+ORDER BY genre_count DESC
+LIMIT 1;
+```
+> First, I made a count of all the genres placed under the column called **```genre_count```** and I received the top genre.
+
+✅ **Result:**
+|name            |genre_count|
+|----------------|-----------|
+|Platformer      |10         |
+
+> With our top genre in mind
+
+<br />
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
