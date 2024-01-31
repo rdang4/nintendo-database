@@ -443,7 +443,7 @@ I reused the same query as Question 1 but with a few tweaks to better represent 
 <br />
  
 ```sql
-SELECT game.title, game.metascore, genre.name AS genre_name
+SELECT game.title, game.user_score, genre.name AS genre_name
 	FROM game
 
 INNER JOIN game_category
@@ -455,10 +455,11 @@ INNER JOIN game_publisher
 INNER JOIN publisher
 	ON game_publisher.publisher_id = publisher.publisher_id
 	
-WHERE publisher.name = 'Nintendo'
-AND genre.name IN ('First-Person Shooter', 'Action', 'Tactics')
+WHERE genre.name IN ('First-Person Shooter', 'Action', 'Tactics')
+AND user_score IS NOT NULL
 
-ORDER BY metascore DESC;
+ORDER BY user_score DESC
+LIMIT 10;
 ```
 > Since the question asks for the most popular games, the most important columns to use will be **game.title** and **game.metascore** from the game table. This is **part 1** of the question.
 
@@ -467,11 +468,18 @@ ORDER BY metascore DESC;
 |-----------------------------------------|------------|--------------------|
 |Metroid Prime Remastered                 |94          |First-Person Shooter|
 |Bayonetta + Bayonetta 2		  |90          |Action		    |
+|Into the Breach			  |89          |Tactics		    |
 |Fire Emblem: Three Houses		  |89          |Tactics		    |
+|DUSK					  |88          |First-Person Shooter|
+|Downwell				  |88          |Action		    |
+|Neon White				  |88          |First-Person Shooter|
+|Quake Remastered			  |87          |First-Person Shooter|
+|The Binding of Isaac: Afterbirth +	  |85          |Action		    |
+|Disgaea 5: Alliance of Vengeance	  |81          |Tactics		    |
 
 <br />
 
-There we go! The most popular games out of the FPS, Action, and Tactics genre published by Nintendo. This is the metascore part of the question and I am interested to see what will be in the user scores in part 2.
+There we go! The most popular games out of the FPS, Action, and Tactics genre published by Nintendo. I am a fan of the Fire Emblem series, and with Fire Emblem: Three Houses being released on the Switch, it was the first game I thought of when deciding on which game was the most popular for the Tactics genre. This is the metascore part of the question and I am interested to see what will be in the user scores in part 2.
 
 Now for part 2, I will gather the most popular games published by Nintendo within the top 3 genres listed above using the user scores:
 
@@ -497,18 +505,20 @@ ORDER BY metascore DESC;
 > The most important columns to use will be **game.title** and **game.user_score** from the game table. This is **part 2** of the question.
 
 ✅ **Result Part 2:**
-|title                              	  |user_score  |
-|-----------------------------------------|------------|
-|Super Mario Bros. Wonder                 |9.1         |
-|Donkey Kong Country: Tropical Freeze     |9.0         |
-|Super Mario Odyssey			  |8.9         |
-|Kirby and the Forgotten Land		  |8.8         |
-|Kirby's Return to Dream Land Deluxe      |8.8         |
-|Metroid Dread				  |8.7         |
-|Super Mario 3D World + Bowser's Fury     |8.7         |
-|The Legend of Zelda: Breath of the Wild  |8.7         |
-|Super Mario Maker 2		          |8.5         |
-|The Legend of Zelda: Link's Awakening    |8.4         |
+|title                              	  |user_score  |genre_name	    |
+|-----------------------------------------|------------|--------------------|
+|Metroid Prime Remastered                 |94          |First-Person Shooter|
+|Bayonetta + Bayonetta 2		  |90          |Action		    |
+|Into the Breach			  |89          |Tactics		    |
+|Fire Emblem: Three Houses		  |89          |Tactics		    |
+|DUSK					  |88          |First-Person Shooter|
+|Downwell				  |88          |Action		    |
+|Neon White				  |88          |First-Person Shooter|
+|Quake Remastered			  |87          |First-Person Shooter|
+|The Binding of Isaac: Afterbirth +	  |85          |Action		    |
+|Disgaea 5: Alliance of Vengeance	  |81          |Tactics		    |
+
+> !WIP!
 
 <br />
 
