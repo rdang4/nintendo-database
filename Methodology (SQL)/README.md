@@ -523,8 +523,6 @@ LIMIT 10;
 |Xenoblade Chronicles 2: Torna ~ The Golden Country		|8.5         |Action RPG	  |
 |Luigi's Mansion 3						|8.4         |Action Adventure	  |
 
-> !WIP!
-
 <br />
 
 It seems that players really love the Xenoblade Chronicles title as it has dominated the top 10. Bayonetta as a classic on the top of the list as well. I am not surprised that this was the result as these are all really good games that I want to try myself. 
