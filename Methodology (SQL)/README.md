@@ -392,7 +392,8 @@ ORDER BY game_id;
 
 ```sql
 SELECT genre.genre_id, genre.name, 
-	ROUND(AVG(game.metascore), 2) AS avg_score
+	ROUND(AVG(game.metascore),2) AS avg_score,
+	COUNT(game.title) AS game_count
 	FROM game
 
 INNER JOIN game_category
@@ -406,25 +407,27 @@ INNER JOIN publisher
 	
 WHERE publisher.name = 'Nintendo'
 GROUP BY publisher.name, genre.name, genre.genre_id
+HAVING COUNT(genre.genre_id) > 3
+
 ORDER BY avg_score DESC
 LIMIT 5;  
 ```
 > We select **genre_id** and **name** from the genre table and the **average** of every metascore which will be named **```avg_score```**. When displaying the output for the average metascore, there were **trailing zeros** at the end of each rating. I decided to take a look at the documentation and found that **```ROUND(AVG(), 2)```** does a great job. This means that I am able to round the number to at most 2 decimal places.
 
-> It is important to specify **Nintendo** using the **WHERE** clause from the **publisher table** in order to gather results of those rows. Then group **publisher names**, **genre names**, and **genre_id** which leads to my result:
+> It is important to specify **Nintendo** using the **WHERE** clause from the **publisher table** in order to gather results of those rows. Then group duplicate **publisher names**, **genre names**, and **genre_id**. I decided to add another column named **```game_count```** in order to count how many games were added into the average. I also only took into consideration genres that had **more than 3** games in it to avoid a skewed average as it heavily affects the result. Here is the output I got:
 
 ✅ **Result:**
-|genre_id|name                |avg_score  |
-|--------|--------------------|-----------|
-|15      |First-Person Shooter|94.00      |
-|1       |Action              |90.00      |
-|35      |Tactics             |89.00      |
-|25      |Racing	      |87.00      |
-|19      |Open-World          |86.67      |
+|genre_id|name                |avg_score  |game_count|
+|--------|--------------------|-----------|----------|
+|19      |Open-World	      |86.67      |6	     |
+|4       |Action RPG          |86.60      |5	     |
+|2       |Action Adventure    |86.40      |5	     |
+|22      |Platformer	      |86.30      |10	     |
+|41      |JRPG	              |84.00      |5	     |
 
 <br />
 
-There is our answer for Question 1! **The top 3 genres published by Nintendo are First-Person Shooter, Action, and Tactics titles**. Before diving into this question, I initially hypothesized that Platformers were going to be the top rated genre, but to my surprise First-Person Shooter had the best ratings.
+There is our answer for Question 1! **The top 3 genres published by Nintendo are Open-World, Action RPG, and Action Adventure titles**. Before diving into this question, I initially hypothesized that Platformers were going to be the top rated genre, but to my surprise Open-World genres were the best by Nintendo. This makes sense with the success of The Legend of Zelda franchise.
 
 <br />
 
@@ -432,13 +435,56 @@ There is our answer for Question 1! **The top 3 genres published by Nintendo are
 
 **Which games are the most popular out of those 3 genres?**
 
-So our next question tasks us with finding a more specific result out of the output from Question 1. Rather than look through and count all games published by Nintendo again, I have already found the top 3 genres: Platformer, RPG, and Open-World. 
+So our next question tasks us with finding a more specific result out of the output from Question 1. Rather than look through and count all games published by Nintendo again, I have already found the top 3 genres: Open-World, Action RPG, and Action Adventure. 
 
 We can interpret this question multiple different ways:
 
-> We can use the Metacritic ratings, user scores, or game sales to find the most popular games. Since there is no accurate way of finding ALL game sales on the market, I will omit this from my findings. I decided to go with both ratings as the user scores represent the game audience while Metacritic scores is solely based on the opinions of the team associated with the website.
+> We can use the **Metacritic ratings, user scores, or game sales** to find the most popular games. Since there is no accurate way of finding ALL game sales on the market, I will omit this from my findings. I decided to go with both ratings as the user scores represent the game audience while Metacritic scores is solely based on the opinions of the team associated with the website.
 
 I reused the same query as Question 1 but with a few tweaks to better represent this question:
+
+<br />
+ 
+```sql
+SELECT game.title, game.metascore, genre.name AS genre_name
+	FROM game
+
+INNER JOIN game_category
+	ON game.game_id = game_category.game_id
+INNER JOIN genre
+	ON game_category.genre_id = genre.genre_id
+INNER JOIN game_publisher
+	ON game.game_id = game_publisher.game_id
+INNER JOIN publisher
+	ON game_publisher.publisher_id = publisher.publisher_id
+	
+WHERE publisher.name = 'Nintendo'
+AND genre.name IN ('Open-World', 'Action RPG', 'Action Adventure')
+
+ORDER BY metascore DESC
+LIMIT 10;
+```
+> Since the question asks for the most popular games, the most important columns to use will be **game.title** and **game.metascore** from the game table. This is **part 1** of the question.
+
+✅ **Result Part 1:**
+|title                              	 			|metascore   |genre_name	  |
+|---------------------------------------------------------------|------------|--------------------|
+|The Legend of Zelda: Breath of the Wild  			|94          |Open-World	  |
+|The Legend of Zelda: Tears of the Kingdom			|90          |Open-World	  |
+|Xenoblade Chronicles 3: Expansion Pass Wave 4 - Future Redeemed|89          |Action RPG	  |
+|Bayonetta 2							|89          |Action Adventure	  |
+|Xenoblade Chronicles: Definitive Edition			|88          |Action RPG	  |
+|Xenoblade Chronicles 3						|88          |Action RPG	  |
+|The Legend of Zelda: Link's Awakening			  	|88          |Open-World	  |
+|Astral Chain							|87          |Action Adventure	  |
+|Luigi's Mansion 3						|85          |Action Adventure	  |
+|Bayonetta 3							|81          |Action Adventure	  |
+
+<br />
+
+> There we go! The most popular games out of the Open-World, Action RPG, and Action Adventure genre published by Nintendo. I am a fan of The Legend of Zelda series since its initial release on the Nintendo Switch and with the new entry Tears of the Kingdom, it is crazy how the Switch is able to handle such a big game. I have not played Xenoblade Chronicles, but I hear a lot about how great it is and it shows!
+
+Now for part 2, I will gather the most popular games published by Nintendo within the top 3 genres listed above using the user scores:
 
 <br />
  
@@ -455,74 +501,33 @@ INNER JOIN game_publisher
 INNER JOIN publisher
 	ON game_publisher.publisher_id = publisher.publisher_id
 	
-WHERE genre.name IN ('First-Person Shooter', 'Action', 'Tactics')
-AND user_score IS NOT NULL
+WHERE publisher.name = 'Nintendo'
+AND genre.name IN ('Open-World', 'Action RPG', 'Action Adventure')
 
 ORDER BY user_score DESC
 LIMIT 10;
 ```
-> Since the question asks for the most popular games, the most important columns to use will be **game.title** and **game.metascore** from the game table. This is **part 1** of the question.
-
-✅ **Result Part 1:**
-|title                              	  |metascore   |genre_name	    |
-|-----------------------------------------|------------|--------------------|
-|Metroid Prime Remastered                 |94          |First-Person Shooter|
-|Bayonetta + Bayonetta 2		  |90          |Action		    |
-|Into the Breach			  |89          |Tactics		    |
-|Fire Emblem: Three Houses		  |89          |Tactics		    |
-|DUSK					  |88          |First-Person Shooter|
-|Downwell				  |88          |Action		    |
-|Neon White				  |88          |First-Person Shooter|
-|Quake Remastered			  |87          |First-Person Shooter|
-|The Binding of Isaac: Afterbirth +	  |85          |Action		    |
-|Disgaea 5: Alliance of Vengeance	  |81          |Tactics		    |
-
-<br />
-
-There we go! The most popular games out of the FPS, Action, and Tactics genre published by Nintendo. I am a fan of the Fire Emblem series, and with Fire Emblem: Three Houses being released on the Switch, it was the first game I thought of when deciding on which game was the most popular for the Tactics genre. This is the metascore part of the question and I am interested to see what will be in the user scores in part 2.
-
-Now for part 2, I will gather the most popular games published by Nintendo within the top 3 genres listed above using the user scores:
-
-<br />
- 
-```sql
-SELECT game.title, game.user_score FROM game
-
-INNER JOIN game_category
-	ON game.game_id = game_category.game_id
-INNER JOIN genre
-	ON game_category.genre_id = genre.genre_id
-INNER JOIN game_publisher
-	ON game.game_id = game_publisher.game_id
-INNER JOIN publisher
-	ON game_publisher.publisher_id = publisher.publisher_id
-
-WHERE publisher.name = 'Nintendo' 
-AND genre.name IN ('Platformer', 'RPG', 'Open-World')
-
-ORDER BY metascore DESC;
-```
 > The most important columns to use will be **game.title** and **game.user_score** from the game table. This is **part 2** of the question.
 
 ✅ **Result Part 2:**
-|title                              	  |user_score  |genre_name	    |
-|-----------------------------------------|------------|--------------------|
-|Metroid Prime Remastered                 |94          |First-Person Shooter|
-|Bayonetta + Bayonetta 2		  |90          |Action		    |
-|Into the Breach			  |89          |Tactics		    |
-|Fire Emblem: Three Houses		  |89          |Tactics		    |
-|DUSK					  |88          |First-Person Shooter|
-|Downwell				  |88          |Action		    |
-|Neon White				  |88          |First-Person Shooter|
-|Quake Remastered			  |87          |First-Person Shooter|
-|The Binding of Isaac: Afterbirth +	  |85          |Action		    |
-|Disgaea 5: Alliance of Vengeance	  |81          |Tactics		    |
+|title                              	 			|user_score  |genre_name	  |
+|---------------------------------------------------------------|------------|--------------------|
+|Bayonetta 2				 			|8.9         |Action Adventure	  |
+|Xenoblade Chronicles 3: Expansion Pass Wave 4 - Future Redeemed|8.9         |Action RPG	  |
+|Astral Chain							|8.9         |Action Adventure	  |
+|Xenoblade Chronicles: Definitive Edition			|8.8         |Action RPG	  |
+|The Legend of Zelda: Breath of the Wild			|8.7         |Open-World	  |
+|Bayonetta Origins: Cereza and the Lost Demon			|8.5         |Action Adventure	  |
+|Xenoblade Chronicles 3						|8.5         |Action RPG	  |
+|Xenoblade Chronicles 2						|8.5         |Action RPG	  |
+|Xenoblade Chronicles 2: Torna ~ The Golden Country		|8.5         |Action RPG	  |
+|Luigi's Mansion 3						|8.4         |Action Adventure	  |
 
 > !WIP!
 
 <br />
 
-I was surprised to see that Super Mario Bros. Wonder was number 1 on the list. It is the newest Super Mario Bros. game as of typing this. I can only assume that because of the recent movie, it has reached millions of kids that really enjoyed this game. I would say that it was a perfect time to release it. Other than that, Super Mario Odyssey definitely deserved a top spot on this list. It was such a different take on the Super Mario franchise that it made me want to pick up a Switch myself. 
+It seems that players really love the Xenoblade Chronicles title as it has dominated the top 10. Bayonetta as a classic on the top of the list as well. I am not surprised that this was the result as these are all really good games that I want to try myself. 
 
 <br />
 
