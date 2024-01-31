@@ -424,7 +424,7 @@ LIMIT 5;
 
 <br />
 
-There is our answer for Question 1! **The top 3 genres published by Nintendo are First-Person Shooter, Action, and Tactics titles**. Before diving into this question, I thought that Platformers were 
+There is our answer for Question 1! **The top 3 genres published by Nintendo are First-Person Shooter, Action, and Tactics titles**. Before diving into this question, I initially hypothesized that Platformers were going to be the top rated genre, but to my surprise First-Person Shooter had the best ratings.
 
 <br />
 
@@ -443,7 +443,8 @@ I reused the same query as Question 1 but with a few tweaks to better represent 
 <br />
  
 ```sql
-SELECT game.title, game.metascore FROM game
+SELECT game.title, game.metascore, genre.name AS genre_name
+	FROM game
 
 INNER JOIN game_category
 	ON game.game_id = game_category.game_id
@@ -453,31 +454,24 @@ INNER JOIN game_publisher
 	ON game.game_id = game_publisher.game_id
 INNER JOIN publisher
 	ON game_publisher.publisher_id = publisher.publisher_id
-
-WHERE publisher.name = 'Nintendo' 
-AND genre.name IN ('Platformer', 'RPG', 'Open-World')
+	
+WHERE publisher.name = 'Nintendo'
+AND genre.name IN ('First-Person Shooter', 'Action', 'Tactics')
 
 ORDER BY metascore DESC;
 ```
 > Since the question asks for the most popular games, the most important columns to use will be **game.title** and **game.metascore** from the game table. This is **part 1** of the question.
 
 ✅ **Result Part 1:**
-|title                              	  |metascore   |
-|-----------------------------------------|------------|
-|Super Mario Odyssey                 	  |97          |
-|The Legend of Zelda: Breath of the Wild  |97          |
-|The Legend of Zelda: Tears of the Kingdom|96          |
-|Super Mario Bros. Wonder		  |92          |
-|Super Mario 3D World + Bowser's Fury     |89          |
-|Metroid Dread				  |88          |
-|Super Mario Maker 2       	  	  |88          |
-|The Legend of Zelda: Link's Awakening    |87          |
-|Donkey Kong Country: Tropical Freeze     |86          |
-|Kirby and the Forgotten Land		  |85          |
+|title                              	  |metascore   |genre_name	    |
+|-----------------------------------------|------------|--------------------|
+|Metroid Prime Remastered                 |94          |First-Person Shooter|
+|Bayonetta + Bayonetta 2		  |90          |Action		    |
+|Fire Emblem: Three Houses		  |89          |Tactics		    |
 
 <br />
 
-There we go! Our top 10 most popular games It is not a surprise at this point, but it is clear that the Super Mario series is the most popular amongst the Metacritic team. For decades, Super Mario has reach so many gamers in the world and to still see the enormous fanbase today is amazing. Ever since the first release of The Legend of Zelda: Breath of the Wild on the Switch, it surprised a lot of people how much the Switch was able to perform well with such a HUGE game. Ever since this release, I feel like Nintendo has only released many great games in this series.
+There we go! The most popular games out of the FPS, Action, and Tactics genre published by Nintendo. This is the metascore part of the question and I am interested to see what will be in the user scores in part 2.
 
 Now for part 2, I will gather the most popular games published by Nintendo within the top 3 genres listed above using the user scores:
 
