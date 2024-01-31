@@ -606,6 +606,7 @@ LIMIT 1;
 * **Question 3.3: How many more games were released in the top genre compared to the third top genre?**
 
 This will involve basic arithmetic and since there will not be a significant amount of numbers to make the math as complicated as possible, I will do it anyway. Referring back to [Question 1](#-question-1) above
+
 ---
 
 <p>&copy; 2023 Ryan Dang</p>
