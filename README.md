@@ -48,7 +48,7 @@ There are a few questions that I would like to create in order to challenge myse
 
 * ❕ Question 2: Popular Games 
 
-   **Which games are the most popular out of those 3 genres?**
+   **Which games are the most popular out of those 3 genres (not published by Nintendo)?**
 
 * ❕ Question 3: More Specific Questions
 <details>
