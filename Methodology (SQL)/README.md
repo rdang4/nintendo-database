@@ -613,6 +613,8 @@ LIMIT 1;
 
 This will involve basic arithmetic and since there will not be a significant amount of numbers to make the math as complicated as possible, I will do it anyway. Referring back to [Question 1](#-question-1) above, our top 3 genres were; Open-World, Action RPG, and Action Adventure. 
 
+<br />
+
 ```sql
 SELECT
 	(SELECT COUNT(*) FROM game 
@@ -648,6 +650,10 @@ AS difference;
 > Open-World has 6 games and Action Adventure has 5 games in my database. This means that the difference displayed in our result is correct! It was A LOT harder than I expected because subtracting from the same column is difficult compared to two different columns.
 
 > The hardest part was figuring out where to start subtracting in the first place as I was never really tought how to do this specifically. Finding the **difference of 2 rows in the same column** required me to create **extra SELECT statements** in parenthesis to be able to get the game count of both Open-World and Action Adventure. Since I cannot select two columns to subtract with, I had to find the count of each genre individually AND THEN subtract them. WOW this was a tedious question!
+
+<br />
+
+What is the percentage of games released in the top category compareed to all other categories?
 
 ---
 
