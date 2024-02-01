@@ -571,7 +571,7 @@ ORDER BY total_sales DESC;
 |T       |36.560 	  |
 |M       |13.520          |
 
-And just as expected my hypothesis was correct! With so many popular games released with an ESRB rating of E and E10+, it makes sense that the **```total_sales```** in millions will be at the top of the list. The ESRB rating of **RP means Rating Pending**, therefore it does not have a rating yet. We will ignore RP because there is no value for it. 
+> And just as expected my hypothesis was correct! With so many popular games released with an ESRB rating of E and E10+, it makes sense that the **```total_sales```** in millions will be at the top of the list. The ESRB rating of **RP means Rating Pending**, therefore it does not have a rating yet. We will ignore RP because there is no value for it. 
 
 <br />
 
@@ -611,7 +611,43 @@ LIMIT 1;
 
 * **Question 3.3: How many more games were released in the top genre compared to the third top genre?**
 
-This will involve basic arithmetic and since there will not be a significant amount of numbers to make the math as complicated as possible, I will do it anyway. Referring back to [Question 1](#-question-1) above
+This will involve basic arithmetic and since there will not be a significant amount of numbers to make the math as complicated as possible, I will do it anyway. Referring back to [Question 1](#-question-1) above, our top 3 genres were; Open-World, Action RPG, and Action Adventure. 
+
+```sql
+SELECT
+	(SELECT COUNT(*) FROM game 
+	 INNER JOIN game_category
+		ON game.game_id = game_category.game_id
+	 INNER JOIN genre
+		ON game_category.genre_id = genre.genre_id
+	 INNER JOIN game_publisher
+		ON game.game_id = game_publisher.game_id
+	 INNER JOIN publisher
+		ON game_publisher.publisher_id = publisher.publisher_id
+	 WHERE publisher.name = 'Nintendo' AND genre.name = 'Open-World'
+	 GROUP BY publisher.name, genre.name) - 
+	(SELECT COUNT(*) FROM game 
+	 INNER JOIN game_category
+		ON game.game_id = game_category.game_id
+	 INNER JOIN genre
+		ON game_category.genre_id = genre.genre_id
+	 INNER JOIN game_publisher
+		ON game.game_id = game_publisher.game_id
+	 INNER JOIN publisher
+		ON game_publisher.publisher_id = publisher.publisher_id
+	 WHERE publisher.name = 'Nintendo' AND genre.name = 'Action Adventure'
+	 GROUP BY publisher.name, genre.name) 
+
+AS difference;
+```
+✅ **Result:**
+|difference      |
+|----------------|
+|1	         |
+
+> Open-World has 6 games and Action Adventure has 5 games in my database. This means that the difference displayed in our result is correct! It was A LOT harder than I expected because subtracting from the same column is difficult compared to two different columns.
+
+> The hardest part was figuring out where to start subtracting in the first place as I was never really tought how to do this specifically. Finding the **difference of 2 rows in the same column** required me to create **extra SELECT statements** in parenthesis to be able to get the game count of both Open-World and Action Adventure. Since I cannot select two columns to subtract with, I had to find the count of each genre individually AND THEN subtract them. WOW this was a tedious question!
 
 ---
 
