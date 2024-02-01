@@ -24,6 +24,12 @@
    
 5. [Questions and Answers](#questions-and-answers)
 
+     a. [Question 1](#-question-1)
+
+     b. [Question 2](#-question-2)
+
+     c. [Question 3](#-question-3)
+
 ---
 ## Table Relationships
 The brainstorming process was unfamiliar to me as I needed to determine how to arrange each column to be inserted into a table. I decided to create a workflow diagram to visualize each and every table that was going to be created. You never know how much writing or visualizing your ideas helps until it is done!
