@@ -653,7 +653,7 @@ AS difference;
 
 <br />
 
-What is the percentage of games released in the top category compareed to all other categories?
+* **Question 3.4: What is the percentage of games released in the top category compareed to all other categories?**
 
 ---
 
