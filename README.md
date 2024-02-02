@@ -70,7 +70,7 @@ I want to create more questions out of the top 3 genres in order to find out wha
 
 
 # Data Overview 🗂️
-[View Data Exploration Folder](/Methodology%20(SQL))
+[View My Data Exploration Folder](/Methodology%20(SQL))
 
 # Citations 🧾
 ### About the Gaming Industry
