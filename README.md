@@ -73,7 +73,8 @@ I want to create more questions out of the top 3 genres in order to find out wha
 ## Methodology (SQL)
 This project will highlight 7 tables that I have personally created which will be displayed in my brainstorm diagram of table relationships. These table relationships will be helpful in highlighting the connections between each table when joining them. 
 
-This section will contain my journey and learning process of creating the visualizations, queries, and a bit of input here and there about the problems and results when faced with a new task. We will eventually be able to answer each question when finding the JOIN type for each table.
+This section will contain my journey and learning process of creating the visualizations, queries, and a bit of input here and there about the problems and results when faced with a new task. We will eventually be able to answer each question when finding the JOIN type for each table:
+
 [View My Data Exploration Folder](/Methodology%20(SQL))
 
 # Citations 🧾
