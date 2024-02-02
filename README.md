@@ -5,7 +5,7 @@
 
 A personal passion project that showcases database collection of Nintendo games. Information will include; game titles, genre, ratings, sales, and more.
 
-> **Updates (02/02/2024): I am on the last question of the [Questions & Challenges](#questions--challenges-). I am looking forward to cleaning up this repository soon! :D**
+> **Updates (02/02/2024): I am on the last question of the [Questions & Challenges](#questions--challenges-). Looking forward to cleaning up this repository soon! :D**
 
 
 # Table of Contents 📋
