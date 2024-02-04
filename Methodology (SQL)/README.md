@@ -577,7 +577,7 @@ ORDER BY total_sales DESC;
 
 * **Question 3.2: How many games did Nintendo release in their top genre?**
 
-Now, if I started fresh without joining all the tables in the previous question, the process would be the same, but this time we are counting up the amount of genres.
+Now, if I started fresh without joining all the tables in the previous question, the process would be the same, but this time we are counting up the amount of genres to denote the amount of games that have the Open-World tag.
 
 <br />
 
@@ -595,17 +595,16 @@ INNER JOIN publisher
 	ON game_publisher.publisher_id = publisher.publisher_id
 	
 WHERE publisher.name = 'Nintendo'
-GROUP BY publisher.name, genre.name
-ORDER BY genre_count DESC
-LIMIT 1;
+AND genre.name IN ('Open-World')
+GROUP BY publisher.name, genre.name;
 ```
 
 ✅ **Result:**
 |name            |genre_count|
 |----------------|-----------|
-|Platformer      |10         |
+|Open-World      |6          |
 
-> With **```genre_count```** listed, we now know that the total amount of games in the Platformer genre published by Nintendo are 10.
+> With **```genre_count```** listed, we now know that the total amount of games in the Open-World genre published by Nintendo is 6.
 
 <br />
 
@@ -654,6 +653,59 @@ AS difference;
 <br />
 
 * **Question 3.4: What is the percentage of games released in the top category compared to all other categories?**
+
+Considering that I am looking for the percentage of games in the top category for Nintendo, I will need to divide the total amount of games published with the Platformers genre. Since this question is a general one, I will test to see the percentage of games released in the top category in the whole database as well.
+
+For part 1, I will need to find the total amount of games by Nintendo first:
+
+<br />
+
+```sql
+SELECT COUNT(*) AS total_games
+	FROM game
+	
+INNER JOIN game_category
+	ON game.game_id = game_category.game_id
+INNER JOIN genre
+	ON game_category.genre_id = genre.genre_id
+INNER JOIN game_publisher
+	ON game_category.game_id = game_publisher.game_id
+INNER JOIN publisher
+	ON game_publisher.publisher_id = publisher.publisher_id
+	
+WHERE publisher.name = 'Nintendo'
+GROUP BY publisher.name;
+```
+✅ **Result Part 1:**
+|total_games|
+|-----------|
+|71         |
+
+Now that I know there are 71 total games by Nintendo in this database, I can find the percentage by using some information I gathered from previous questions. Our top genre is Open-World with a total of 6 games. **We should have around 8.5% as our sample output**.
+
+```sql
+SELECT ROUND(6.0 / COUNT(*), 4) * 100 AS percent_ow
+	FROM game
+
+INNER JOIN game_category
+	ON game.game_id = game_category.game_id
+INNER JOIN genre
+	ON game_category.genre_id = genre.genre_id
+INNER JOIN game_publisher
+	ON game.game_id = game_publisher.game_id
+INNER JOIN publisher
+	ON game_publisher.publisher_id = publisher.publisher_id
+	
+WHERE publisher.name = 'Nintendo';
+```
+> After some brief struggling and research I was unable to figure out how to get the COUNT of the Open-World genre games as well as the COUNT of all games by Nintendo. I decided to use 6.0 from previous queries and divided this by the total, multiplied by 100 to get the percent value.
+
+✅ **Result Part 2:**
+|percent_ow|
+|----------|
+|8.4500    |
+
+<br />
 
 
 
