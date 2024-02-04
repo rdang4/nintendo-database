@@ -698,7 +698,7 @@ INNER JOIN publisher
 	
 WHERE publisher.name = 'Nintendo';
 ```
-> After some brief struggling and research I was unable to figure out how to get the COUNT of the Open-World genre games as well as the COUNT of all games by Nintendo. I decided to use 6.0 from previous queries and divided this by the total, multiplied by 100 to get the percent value.
+> After some brief struggling and research I was unable to figure out how to get the **COUNT** of the Open-World genre games as well as the **COUNT** of all games by Nintendo. I decided to use 6.0 from previous queries and divided this by the total, multiplied by 100 to get the percent value.
 
 ✅ **Result Part 2:**
 |percent_ow|
