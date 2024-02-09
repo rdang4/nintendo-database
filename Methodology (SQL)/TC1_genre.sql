@@ -29,7 +29,7 @@ VALUES
 
   -- Let's run the query to output our work
 
-SELECT * FROM genre
+SELECT genre_id, name FROM genre
 LIMIT 5;
 
 -- Result:
@@ -42,6 +42,14 @@ LIMIT 5;
 | 4	       |  "Action RPG"	     | 2023-11-14 00:29:30.420746 |
 | 5	       |  "Adventure"	       | 2023-11-14 00:29:30.420746 |
 +──────────+─────────────────────+────────────────────────────+
+
+|genre_id|name            |last_update               |
+|--------|----------------|--------------------------|
+|1       |Action          |2023-11-14 00:29:30.420746|
+|2       |Action Adventure|2023-11-14 00:29:30.420746|
+|3       |Action Puzzle   |2023-11-14 00:29:30.420746|
+|4       |Action RPG      |2023-11-14 00:29:30.420746|
+|5       |Adventure       |2023-11-14 00:29:30.420746|
 
 -- Problems/Hiccups:
   -- For the names in the genre table,  words that included apostrophes like "Beat-'Em-Up" would create or close strings.
