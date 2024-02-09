@@ -45,13 +45,14 @@ LIMIT 5;
 
 -- Problems/Hiccups:
   -- For the names in the genre table,  words that included apostrophes like "Beat-'Em-Up" would create or close strings.
-/*
+
+/***
 
 INSERT INTO genre(name, last_update)
 VALUES
   ('Beat- 'Em Up', CURRENT_TIMESTAMP);
 
-*/
+***/
 
   -- Beat-'Em-Up technically ends the character entry at "Beat-". If there is another single quote, it will end the string.
 
