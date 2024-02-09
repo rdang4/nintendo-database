@@ -166,7 +166,7 @@ As I was entering the values for **```genre.name```**, I noticed a problem. Ther
 ```sql
 INSERT INTO genre(name, last_update)
 VALUES
-  ('Beat-'Em Up', CURRENT_TIMESTAMP),
+  ('Beat-'Em Up', CURRENT_TIMESTAMP);
 ```
 
  <br />
@@ -178,7 +178,7 @@ As shown above, the name ***“Beat-’Em-Up”*** technically ends the characte
 ```sql
 INSERT INTO genre(name, last_update)
 VALUES
-  ('Beat-''Em Up', CURRENT_TIMESTAMP),
+  ('Beat-''Em Up', CURRENT_TIMESTAMP);
 ```
 ✅ **Result:**
 |genre_id|name            |last_update               |
