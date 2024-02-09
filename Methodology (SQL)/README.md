@@ -125,7 +125,7 @@ CREATE TABLE genre
 
  <br /> 
 
-Now we get to add in the genres listed on the Metacritic site! I was able to find 44 genre names listed under the filter search. Since **```genre.id```** is a **SERIAL PRIMARY KEY**, every time I insert a row into the database, the **```genre.id```** will continuously count up for each update. 
+Now we get to add in the genres listed on the Metacritic site! I was able to find 44 genre names listed under the filter search. Since **```genre_id```** is a **SERIAL PRIMARY KEY**, every time I insert a row into the database, the **```genre_id```** will continuously count up for each update. 
 
 > (There are a lot of games that are not within these genre names. I do not understand why, but I will do my best to associate each game in respect to the closest genre name.)
 
