@@ -54,7 +54,7 @@ VALUES
 
 ***/
 
-  -- Beat-'Em-Up technically ends the character entry at "Beat-". If there is another single quote, it will end the string.
+  -- Beat-'Em-Up technically ends the string at "Beat-". If there is another single quote, it will end the string.
 
 INSERT INTO genre(name, last_update)
 VALUES
