@@ -5,7 +5,7 @@
 
 A personal passion project that showcases database collection of Nintendo games. Information will include; game titles, genre, ratings, sales, and more.
 
-> **Updates (02/13/2024): I have officially finished [Questions & Challenges](#questions--challenges-)! I'm now creating compiled versions of my PostgreSQL findings within the [Methodology Folder](Methodology%20(SQL))**
+> **Updates (02/13/2024): I have officially finished [Questions & Challenges](#questions--challenges-)! I'm now creating compiled versions of my PostgreSQL findings within the [Methodology Folder](Methodology%20(SQL))**.
 
 
 # Table of Contents 📋
