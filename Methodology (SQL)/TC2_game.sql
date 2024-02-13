@@ -52,11 +52,12 @@ VALUES
 
 /**
 
-  The **```TO_DATE```** function. I preferred showing the name of the month followed by the number of day and then the year. 
-  I did learn afterward that it was probably better to store dates in a dedicated **```DATE```** column. 
-  For example: **"2017-03-03"** compared to **"Mar-03-2017"**. A lot of trial and error, but I settled with the default format.
+  The TO_DATE function. I preferred showing the name of the month followed by the number of day and then the year. 
+  I did learn afterward that it was probably better to store dates in a dedicated DATE column. 
+
+  For example: "2017-03-03" compared to "Mar-03-2017". A lot of trial and error, but I settled with the default format.
   
-  Initially when creating the **```Nintendo.game```** table, I set the parameters for each column to be **```VARCHAR```**. 
+  Initially when creating the Game table, I set the parameters for each column to be VARCHAR. 
   This made no sense as scores and sale numbers are considered to be numerical integers. I made the changes accordingly.
 
 **/
