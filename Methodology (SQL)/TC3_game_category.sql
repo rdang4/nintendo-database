@@ -28,6 +28,7 @@ WHERE game.game_id NOT IN (SELECT game_id FROM game_category);
 
   -- This shall now transfer game_id into game_category as a column.
 
+----------------------------------
 
 -- Problems/Hiccups:
   -- My first thought was that I wanted to understand whether or not I was able to transfer the primary key game_id from Nintendo.game into game_category. 
