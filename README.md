@@ -118,7 +118,7 @@ Click to View
 [Visual Explanation of SQL Joins](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/)
 </details>
 
-### All of the badges, screenshots of sql queries, and mind map diagrams are created by me.
+### **All of the badges, screenshots of sql queries, and mind map diagrams are created by me.**
 
 --------------------------------
 
