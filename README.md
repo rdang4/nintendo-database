@@ -1,4 +1,6 @@
 # Nintendo Switch Library and Data Analytics
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon4.png" width=20% height=20%>](https://github.com/rdang4?tab=repositories)
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon5.png" width=20% height=20%>](https://github.com/rdang4)
 
 <p align="center">
 <img src="https://media1.giphy.com/media/PkKjXRfMCxnRMHQWqE/giphy.gif" width=40% height=40%>
