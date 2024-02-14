@@ -711,6 +711,6 @@ WHERE publisher.name = 'Nintendo';
 
 
 
----
+--------------------------------
 
-<p>&copy; 2023 Ryan Dang</p>
+<p>&copy; 2024 Ryan Dang</p>
