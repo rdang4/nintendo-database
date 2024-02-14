@@ -1,6 +1,9 @@
 # **[Nintendo Switch Library and Data Analytics](https://github.com/rdang4/nintendo-database-analytics)**
 
 # Data Join - Methodology
+If I were to describe what a table join is in SQL; it allows us to combine multiple information from tables together. In this query below, I will be using **INNER JOINS** which only produces a set of records present in the tables being joined. **In this case our tables will be: game, game_category, genre, developer, game_developer, publisher, and game_publisher.** Here is a diagram of how inner joins work:
+
+
 
 ## **Table of Contents**
 
