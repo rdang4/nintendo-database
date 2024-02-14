@@ -43,7 +43,10 @@ LIMIT 5;
 | 5        | Adventure        | 2023-11-14 00:29:30.420746 |
 +──────────+──────────────────+────────────────────────────+
   
--- Problems/Hiccups:
+
+  ----------------------------------------------
+  
+  -- Problems/Hiccups:
   -- For the names in the genre table,  words that included apostrophes like "Beat-'Em-Up" would create or close strings.
 
 /***
