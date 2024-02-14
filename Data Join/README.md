@@ -7,6 +7,8 @@ If I were to describe what a table join is in SQL; it allows us to combine multi
 <img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/Inner_Join_Diagram.png" width=60% height=60%>
 </p>
 
+> In this case, we have a total of 7 tables. Each table that is being inner joined like genre and game_category, they will be joined together because they both have game_id. Putting these two together will only display columns that these two tables have in common.
+
 ## **Table of Contents**
 
 1. [Table Join](#table-join)
