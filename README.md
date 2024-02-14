@@ -119,3 +119,7 @@ Click to View
 </details>
 
 ### All of the badges, screenshots of sql queries, and mind map diagrams are created by me.
+
+--------------------------------
+
+<p>&copy; 2024 Ryan Dang</p>
