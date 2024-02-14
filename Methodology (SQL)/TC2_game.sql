@@ -48,6 +48,8 @@ VALUES
 
   -- There will be another column for details, but I omitted it to shorten the results chart.
 
+----------------------------------------------
+
 -- Problem/Hiccups:
 
 /**
