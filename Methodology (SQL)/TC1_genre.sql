@@ -44,7 +44,7 @@ LIMIT 5;
 +──────────+──────────────────+────────────────────────────+
   
 
-  ----------------------------------------------
+----------------------------------------------
   
   -- Problems/Hiccups:
   -- For the names in the genre table,  words that included apostrophes like "Beat-'Em-Up" would create or close strings.
