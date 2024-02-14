@@ -114,4 +114,8 @@ Click to View
 [PostgreSQL Documentation](https://www.postgresql.org/docs/)
 
 [Mind Map Made in Canva](https://www.canva.com/design/DAF07reEg8w/MCEiJaX7jP06fwuHWwH5sQ/edit?utm_content=DAF07reEg8w&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+[Visual Explanation of SQL Joins](https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/)
 </details>
+
+### All of the badges, screenshots of sql queries, and mind map diagrams are created by me.
