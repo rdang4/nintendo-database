@@ -1,6 +1,6 @@
 # **[Nintendo Switch Library and Data Analytics](https://github.com/rdang4/nintendo-database-analytics)**
 
-[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon1.png" width=22% height=22%>](https://github.com/rdang4/nintendo-database-analytics/tree/main/Methodology%20(SQL))
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon1.png" width=20% height=20%>](https://github.com/rdang4/nintendo-database-analytics/tree/main/Methodology%20(SQL))
 [<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon2.png" width=20% height=20%>](https://github.com/rdang4/nintendo-database-analytics/tree/main/Data%20Questions%20(SQL))
 [<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon3.png" width=20% height=20%>](https://github.com/rdang4/nintendo-database-analytics/tree/main)
 
