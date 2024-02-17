@@ -18,6 +18,7 @@ If I were to describe what a table join is in SQL; it allows us to combine multi
 ## **Table of Contents**
 
 1. [Table Join](#table-join)
+2. [What's Next?](#whats-next)
 
 <br />
 
