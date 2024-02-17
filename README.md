@@ -79,6 +79,11 @@ This section contains my journey and learning process of creating the visualizat
 
 [<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon6.png" width=24% height=24%>](/Methodology%20(SQL))
 
+## Data Join
+This is the tail end of this project. Before we can answer our own questions from above, we have to identify which columns will be used. Afterwards, we will join the tables together to see our hard work come to fruition.
+
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon7.png" width=24% height=24%>](/Data%20Join)
+
 # Citations 🧾
 ### About the Gaming Industry
 <details>
