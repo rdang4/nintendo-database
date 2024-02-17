@@ -77,7 +77,7 @@ This project will highlight 7 tables that I have personally created which will b
 
 This section contains my journey and learning process of creating the visualizations, queries, and a bit of input here and there about the problems and results when faced with a new task. We will eventually be able to answer each question when finding the JOIN type for each table:
 
-### [View My Data Exploration Folder](/Methodology%20(SQL))
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon6.png" width=24% height=24%>](/Methodology%20(SQL))
 
 # Citations 🧾
 ### About the Gaming Industry
