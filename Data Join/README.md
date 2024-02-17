@@ -116,7 +116,7 @@ LIMIT 10;
 <br />
 
 ✅ **Result:**
-|genre_id |title                   |total_games |earliest_release |latest_release |
+|genre_id |genre_name              |total_games |earliest_release |latest_release |
 |---------|------------------------|------------|-----------------|---------------|
 |22       |Platformer              |94          |2017-03-03       |2023-10-20	  |
 |5        |Adventure               |42          |2017-10-06       |2023-12-05	  |
