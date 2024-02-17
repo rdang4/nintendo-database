@@ -18,7 +18,8 @@ If I were to describe what a table join is in SQL; it allows us to combine multi
 ## **Table of Contents**
 
 1. [Table Join](#table-join)
-2. [What's Next?](#whats-next)
+2. [Counting Games](#counting-games)
+3. [What's Next?](#whats-next)
 
 <br />
 
@@ -69,6 +70,8 @@ LIMIT 10;
 |10      |Undertale                                                  |41       |JRPG                |E10+ |93       |8.5       |tobyfox          |tobyfox               |
 
 <br />
+
+## **Counting Games**
 
 **Finishing Thoughts:**
 
