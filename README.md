@@ -87,7 +87,7 @@ This is the tail end of this project. Before we can answer our own questions fro
 # Solutions 🔑
 This part of the section will focus on answering my questions that I have given myself. With all the tables joined together, I will be able to analyze what kind of information can be taken out. I have added questions in which I can hopefully create a challenge for myself when playing around with the data. 
 
-> With different kinds of assessments and questions being asked (when I do encounter them), I will definitely try to create my own here to mimic it. 
+> With different kinds of assessments and questions being given to me, I will definitely try to recreate my own here to mimic the idea. 
 
 # Citations 🧾
 ### About the Gaming Industry
