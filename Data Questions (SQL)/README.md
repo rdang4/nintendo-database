@@ -1,5 +1,10 @@
 # Nintendo Switch Library and Data Analytics: Data Questions (SQL)
 
+## Table of Contents
+
+-----
+
+
 ### ❕ Question 1
 
 **What are the top 3 genres of all games published by Nintendo?**
