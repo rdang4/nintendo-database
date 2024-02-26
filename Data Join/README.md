@@ -23,6 +23,8 @@ If I were to describe what a table join is in SQL; it allows us to combine multi
 
 3. [What's Next?](#whats-next)
 
+---
+
 <br />
 
 ## **Table Join**
