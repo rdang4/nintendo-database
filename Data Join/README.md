@@ -23,9 +23,9 @@ If I were to describe what a table join is in SQL; it allows us to combine multi
 
 3. [What's Next?](#whats-next)
 
----
-
 <br />
+
+---
 
 ## **Table Join**
 With our hard work done, I am now able to join all the tables together to create a clean chart for me to view.
