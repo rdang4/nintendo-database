@@ -4,6 +4,8 @@
 
 * [Approach to the Problems](#approach-to-the-problems)
    * [Question 1: Top 3 Genres by Nintendo](#q1-top-3-genres-by-nintendo)
+   * [Question 2: Best Games From Those Top 3 Genres](#q2-best-games-in-top-3-genres)
+   * [Question 3: More Specific Questions](#q3-more-specific-questions)
 
 
 ---
