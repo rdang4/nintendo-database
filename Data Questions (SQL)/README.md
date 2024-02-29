@@ -225,6 +225,7 @@ DROP TABLE IF EXISTS difference_top_genres;
 
 CREATE TEMP TABLE difference_top_genres AS
 
+-- To subtract two values together, they must be selected individually.
 SELECT 
 	 (SELECT game_count
 	  FROM genre_count_and_avg
@@ -276,6 +277,8 @@ DROP TABLE IF EXISTS percent_ow_joint_table;
 
 CREATE TEMP TABLE percent_ow_joint_table AS
 
+-- Create a CAST around the individually selected values to be able to shorten the decimals
+-- Change bigint values to float in order to gather approximate decimal values 
 SELECT
 	 CAST((SELECT MIN(game_count)::float 
 	  FROM top_genre_game_count) /
@@ -304,6 +307,7 @@ DROP TABLE IF EXISTS percent_genre_joint_table;
 
 CREATE TEMP TABLE percent_genre_joint_table AS
 
+-- To be able to output all percentages, we need game_count from genre_count_and_avg
 SELECT	 genre_id, genre_name,
 		 CAST(game_count::float /
 		(SELECT total_games::float
