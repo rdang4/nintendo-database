@@ -21,9 +21,15 @@ The most important part of this question was to generate the **```genre_count```
 DROP TABLE IF EXISTS joined_dataset;
 
 CREATE TEMP TABLE joined_dataset AS
-SELECT game.game_id, game.title, genre.genre_id, genre.name AS genre_name,
-	   game.esrb, game.metascore, game.user_score, publisher.name AS publisher_name, 
-	   developer.name AS developer_name
+SELECT game.game_id,
+       game.title,
+       genre.genre_id,
+       genre.name AS genre_name,
+       game.esrb,
+       game.metascore,
+       game.user_score,
+       publisher.name AS publisher_name, 
+       developer.name AS developer_name
 FROM game
 
 INNER JOIN game_category
@@ -51,9 +57,10 @@ DROP TABLE IF EXISTS genre_count_and_avg;
 
 CREATE TEMP TABLE genre_count_and_avg AS
 
-SELECT genre_id, genre_name, 
-	   ROUND(AVG(metascore),2) AS avg_score,
-	   COUNT(title) AS game_count
+SELECT genre_id,
+       genre_name, 
+       ROUND(AVG(metascore),2) AS avg_score,
+       COUNT(title) AS game_count
 FROM joined_dataset
 WHERE publisher_name = 'Nintendo'
 GROUP BY publisher_name, genre_name, genre_id;
@@ -65,7 +72,7 @@ ORDER BY avg_score DESC;
 ```
 
 ✅ **Result:**
-|genre_id|name                |avg_score  |game_count|
+|genre_id|genre_name          |avg_score  |game_count|
 |--------|--------------------|-----------|----------|
 |19      |Open-World	      |86.67      |6	     |
 |4       |Action RPG          |86.60      |5	     |
@@ -88,7 +95,10 @@ DROP TABLE IF EXISTS top_metascores;
 
 CREATE TEMP TABLE top_metascores AS
 
-SELECT game_id, title, metascore, genre_name
+SELECT game_id,
+       title,
+       metascore,
+       genre_name
 FROM joined_dataset
 WHERE publisher_name = 'Nintendo';
 
@@ -122,7 +132,10 @@ DROP TABLE IF EXISTS top_user_scores;
 
 CREATE TEMP TABLE top_user_scores AS
 
-SELECT game_id, title, user_score, genre_name
+SELECT game_id,
+       title,
+       user_score,
+       genre_name
 FROM joined_dataset
 WHERE publisher_name = 'Nintendo';
 
@@ -203,7 +216,9 @@ DROP TABLE IF EXISTS top_genre_game_count;
 
 CREATE TEMP TABLE top_genre_game_count AS
 
-SELECT genre_id, genre_name, game_count
+SELECT genre_id,
+       genre_name,
+       game_count
 FROM genre_count_and_avg
 WHERE genre_name = 'Open-World'
 GROUP BY genre_name, genre_id, game_count;
@@ -308,10 +323,11 @@ DROP TABLE IF EXISTS percent_genre_joint_table;
 CREATE TEMP TABLE percent_genre_joint_table AS
 
 -- To be able to output all percentages, we need game_count from genre_count_and_avg
-SELECT	 genre_id, genre_name,
-		 CAST(game_count::float /
-		(SELECT total_games::float
-		 FROM total_nintendo_games) * 100 AS numeric(10,2)) AS percentage_genres 
+SELECT genre_id,
+       genre_name,
+       CAST(game_count::float /
+       (SELECT total_games::float
+       FROM total_nintendo_games) * 100 AS numeric(10,2)) AS percentage_genres 
 FROM genre_count_and_avg;
 
 SELECT * FROM percent_genre_joint_table
@@ -343,4 +359,42 @@ ORDER BY percentage_genres DESC;
 |35      |Tactics             |1.41		|
 |8       |Beat-'Em-Up 	      |1.41		|
 |1       |Action 	      |1.41		|
+
+---
+## All in All
+We are now in the very last part of this project! In order to visualize everything, I will create a table named **```complete_joint_dataset```** to show the **```genre_id```**, **```genre_name```**, **```percentage_genres```**, **```game_count```**, and **```avg_score```**. We will be inner joining the two tables we have made to output all the information needed.
+
+```sql
+DROP TABLE IF EXISTS complete_joint_dataset;
+CREATE TEMP TABLE complete_joint_dataset AS
+SELECT 
+       t1.genre_id,
+       t1.genre_name,
+       avg_score, 
+       game_count,
+       percentage_genres
+
+FROM genre_count_and_avg AS t1
+
+INNER JOIN percent_genre_joint_table AS t2
+	ON t1.genre_id = t2.genre_id;
+
+SELECT * FROM complete_joint_dataset
+ORDER BY percentage_genres DESC
+LIMIT 10;
+```
+
+✅ **Result:**
+|genre_id|genre_name          |avg_score|game_count|percentage_genres|
+|--------|--------------------|---------|----------|-----------------|
+|22      |Platformer	      |86.30	|10	   |14.08	     |
+|24      |RPG          	      |80.29	|7	   |9.86	     |
+|19      |Open-World          |86.67	|6	   |8.45	     |
+|2       |Action Adventure    |86.40	|5	   |7.04             |
+|41      |JRPG	              |84.00	|5	   |7.04	     |
+|4       |Action RPG          |86.60	|5	   |7.04	     |
+|3       |Action Puzzle       |86.60	|3	   |4.23	     |
+|23      |Puzzle              |86.60	|3	   |4.23	     |
+|14      |Fighting            |86.60	|3	   |4.23	     |
+|20      |Party/Minigame      |86.60	|3	   |4.23	     |
 
