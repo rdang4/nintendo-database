@@ -155,6 +155,8 @@ LIMIT 10;
 * ***The Legend of Zelda: Tears of the Kingdom***
 * ***The Legend of Zelda: Link's Awakening***
 
+> It's so funny how the top 3 games recommended are from The Legend of Zelda series.
+
 ### Based on User Scores for Category: **RPG**
 *This would be my recommendation to you based on **User Scores** for **Nintendo games**:*
 * ***Pokemon Legends: Arceus***
@@ -165,29 +167,21 @@ LIMIT 10;
 
 
 ## Q3: More Specific Questions
-
-> I decided to ask myself more questions in this section in order to learn more and get accustomed to different key words and parameters. 
-
-
-* **Question 3.1: Does the ESRB rating affect the amount of sales of Nintendo games?**
-
-
-With the amount of data I was able to gather for game sales on the Switch, will the ESRB rating have more sales? 
-
-> I hypothesize that ESRB ratings with an E or E10+ will garner more sales because of the amount of children that do play Nintendo games. Looking at the Super Mario Bros. series, it seems like a safe bet.
-
-The goal of this question is to **gather the total amount of sales of all games in the database for each ESRB rating (E, E10+, T, and M)**. I will denote the total game sales as **```total_sales```**.
-
-<br />
+### **#1 ESRB Rating and Sales**
+With the amount of data I was able to gather for game sales on the Switch, will the ESRB rating have more sales? Once again, I will need to use the **```joined_dataset```** table to be able to generate the total amount of sales, denoted as **```total_sales```**, for each ESRB rating. To achieve the total amount in sales, we can use the **```SUM```** function to gather my results. Relatively simple.
 
 ```sql
-SELECT game.esrb,
-     SUM(sales_mil) AS total_sales
-     FROM game
-GROUP BY esrb
+DROP TABLE IF EXISTS esrb_total_sales_mil;
+
+CREATE TEMP TABLE esrb_total_sales_mil AS
+SELECT esrb, 
+       SUM(sales_mil) AS total_sales
+FROM joined_dataset
+GROUP BY esrb;
+
+SELECT * FROM esrb_total_sales_mil
 ORDER BY total_sales DESC;
 ```
-> This question will only involve the game table, therefore I do not need to do any joins to get my solution. This was relatively simple now that I worked out the problem, but here is my output!
 
 ✅ **Result:**
 |esrb    |total_sales     |
@@ -198,90 +192,61 @@ ORDER BY total_sales DESC;
 |T       |36.560 	  |
 |M       |13.520          |
 
-> And just as expected my hypothesis was correct! With so many popular games released with an ESRB rating of E and E10+, it makes sense that the **```total_sales```** in millions will be at the top of the list. The ESRB rating of **RP means Rating Pending**, therefore it does not have a rating yet. We will ignore RP because there is no value for it. 
+> The ESRB rating of **RP means Rating Pending**, therefore it would not have any sales data. 
 
-<br />
 
-* **Question 3.2: How many games did Nintendo release in their top genre?**
-
-Now, if I started fresh without joining all the tables in the previous question, the process would be the same, but this time we are counting up the amount of genres to denote the amount of games that have the Open-World tag.
-
-<br />
+### **#2: Nintendo Game Count In Top Genre**
+This time I will use the **```genre_count_and_avg```** table to generate the **```genre_count```** for the top genre released by Nintendo. Since our **```genre_count_and_avg```** table already has filtered games to Nintendo, we do not have to specify it here again.
 
 ```sql
-SELECT genre.name, COUNT(*) AS genre_count
-	FROM game
+DROP TABLE IF EXISTS top_genre_game_count;
 
-INNER JOIN game_category
-	ON game.game_id = game_category.game_id
-INNER JOIN genre
-	ON game_category.genre_id = genre.genre_id
-INNER JOIN game_publisher
-	ON game.game_id = game_publisher.game_id
-INNER JOIN publisher
-	ON game_publisher.publisher_id = publisher.publisher_id
-	
-WHERE publisher.name = 'Nintendo'
-AND genre.name IN ('Open-World')
-GROUP BY publisher.name, genre.name;
+CREATE TEMP TABLE top_genre_game_count AS
+
+SELECT genre_id, genre_name, 
+	   COUNT(genre_name) AS game_count
+FROM genre_count_and_avg
+GROUP BY genre_name, genre_id;
+
+SELECT * FROM genre_count_and_avg
+WHERE genre_name = 'Open-World';
 ```
 
 ✅ **Result:**
-|name            |genre_count|
-|----------------|-----------|
-|Open-World      |6          |
+|genre_id|name                |avg_score  |game_count|
+|--------|--------------------|-----------|----------|
+|19      |Open-World	      |86.67      |6	     |
 
-> With **```genre_count```** listed, we now know that the total amount of games in the Open-World genre published by Nintendo is 6.
+### **#3: Difference Between Genre Counts**
+This will involve basic arithmetic and since there will not be a significant amount of numbers. Our top 3 genres were; Open-World, Action RPG, and Action Adventure. I need to find how many more games were released in Open-World and Action Adventure. To be able to display our subtracted values, I need to create another table named **```difference_top_genre```** with a column named **```difference```**. I can subtract the count of Open-World with Action Adventure games by individually selecting and encasing them in parenthesis followed by "-" to subtract. 
 
-<br />
-
-* **Question 3.3: How many more games were released in the top genre compared to the third top genre?**
-
-This will involve basic arithmetic and since there will not be a significant amount of numbers to make the math as complicated as possible, I will do it anyway. Referring back to [Question 1](#-question-1) above, our top 3 genres were; Open-World, Action RPG, and Action Adventure. 
-
-<br />
 
 ```sql
-SELECT
-	(SELECT COUNT(*) FROM game 
-	 INNER JOIN game_category
-		ON game.game_id = game_category.game_id
-	 INNER JOIN genre
-		ON game_category.genre_id = genre.genre_id
-	 INNER JOIN game_publisher
-		ON game.game_id = game_publisher.game_id
-	 INNER JOIN publisher
-		ON game_publisher.publisher_id = publisher.publisher_id
-	 WHERE publisher.name = 'Nintendo' AND genre.name = 'Open-World'
-	 GROUP BY publisher.name, genre.name) - 
-	(SELECT COUNT(*) FROM game 
-	 INNER JOIN game_category
-		ON game.game_id = game_category.game_id
-	 INNER JOIN genre
-		ON game_category.genre_id = genre.genre_id
-	 INNER JOIN game_publisher
-		ON game.game_id = game_publisher.game_id
-	 INNER JOIN publisher
-		ON game_publisher.publisher_id = publisher.publisher_id
-	 WHERE publisher.name = 'Nintendo' AND genre.name = 'Action Adventure'
-	 GROUP BY publisher.name, genre.name) 
+DROP TABLE IF EXISTS difference_top_genres;
 
+CREATE TEMP TABLE difference_top_genres AS
+
+SELECT 
+	 (SELECT game_count
+	  FROM genre_count_and_avg
+	  WHERE genre_name = 'Open-World') -
+	 (SELECT game_count
+	  FROM genre_count_and_avg
+	  WHERE genre_name = 'Action Adventure')
 AS difference;
+
+SELECT * FROM difference_top_genres;
 ```
 ✅ **Result:**
 |difference      |
 |----------------|
 |1	         |
 
-> Open-World has 6 games and Action Adventure has 5 games in my database. This means that the difference displayed in our result is correct! It was A LOT harder than I expected because subtracting from the same column is difficult compared to two different columns.
+> Open-World has 6 games and Action Adventure has 5 games in my database. This means that the difference displayed in our result is correct! It was A LOT harder figuring it out without creating another table for data joins specifically. In my [Methodology Folder Question 3.3](/Methodology%20(SQL)/README.md#-question-3), my query was a LOT longer and difficult to figure out. Now with the **```genre_count_and_avg```** table made I am able to use multiple tables to my advantage. Very useful!
 
-> The hardest part was figuring out where to start subtracting in the first place as I was never really tought how to do this specifically. Finding the **difference of 2 rows in the same column** required me to create **extra SELECT statements** in parenthesis to be able to get the game count of both Open-World and Action Adventure. Since I cannot select two columns to subtract with, I had to find the count of each genre individually AND THEN subtract them. WOW this was a tedious question!
+### **#4: Percentage of Top Genre**
 
-<br />
-
-* **Question 3.4: What is the percentage of games released in the top category compared to all other categories?**
-
-Considering that I am looking for the percentage of games in the top category for Nintendo, I will need to divide the total amount of games published with the Platformers genre. Since this question is a general one, I will test to see the percentage of games released in the top category in the whole database as well.
+Considering that I am looking for the percentage of games in the top genre for Nintendo, I will need to divide the total amount of games published with the Platformers genre. Since this question is a general one, I will test to see the percentage of games released in the top genre in the whole database as well.
 
 For part 1, I will need to find the total amount of games by Nintendo first:
 
