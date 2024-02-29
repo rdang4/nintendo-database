@@ -654,9 +654,9 @@ AS difference;
 
 <br />
 
-* **Question 3.4: What is the percentage of games released in the top category compared to all other categories?**
+* **Question 3.4: What is the percentage of games released in the top genre compared to all other genres?**
 
-Considering that I am looking for the percentage of games in the top category for Nintendo, I will need to divide the total amount of games published with the Platformers genre. Since this question is a general one, I will test to see the percentage of games released in the top category in the whole database as well.
+Considering that I am looking for the percentage of games in the top genre for Nintendo, I will need to divide the total amount of games in the Open-World genre with all games.
 
 For part 1, I will need to find the total amount of games by Nintendo first:
 
