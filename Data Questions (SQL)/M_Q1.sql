@@ -79,12 +79,12 @@ ORDER BY avg_score DESC;
 +──────────+─────────────────────+────────────+────────────+
 | genre_id | genre_name          | avg_score  | game_count |
 +──────────+─────────────────────+────────────+────────────+
-| 19       | Open-World	         | 86.67      | 6	         |
-| 4        | Action RPG          | 86.60      | 5	         |
-| 2        | Action Adventure    | 86.40      | 5	         |
-| 22       | Platformer	         | 86.30      | 10	       |
-| 41       | JRPG	               | 84.00      | 5	         |
-| 24       | RPG 	               | 80.29      | 7	         |
+| 19       | Open-World	         | 86.67      | 6          |
+| 4        | Action RPG          | 86.60      | 5          |
+| 2        | Action Adventure    | 86.40      | 5          |
+| 22       | Platformer	         | 86.30      | 10         |
+| 41       | JRPG                | 84.00      | 5          |
+| 24       | RPG                 | 80.29      | 7          |
 +──────────+─────────────────────+────────────+────────────+
 
 -- We can say now that the top 3 genres published by Nintendo would be Open-World, Action RPG, and Action adventure games based on their average score on the Metacritic website.
