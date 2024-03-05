@@ -213,6 +213,15 @@ ORDER BY percentage_genres DESC;
 | 1        | Action               | 1.41              |
 +──────────+──────────────────────+───────────────────+
 
---------------------------------------------------------------------------------------
+/***************************************************
 
+FINISHING THOUGHTS FOR Q3.4, PART 3:
+
+We can see the result for all genres all in one table above.
+As expected, the Open-World genre has the same percentage as the result before.
+Now we know that in our database, Platformers make up 14.08% of the total games by Nintendo.
+The smallest percentage of all genres are Rhythm, First-Person Shooter, 
+Exercise/Fitness, Tactics, Beat-'Em-Up, and Action games.
+
+***************************************************/
   
