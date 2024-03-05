@@ -7,6 +7,8 @@
 
 > This is a personal passion project that showcases database collection of Nintendo games. Information will include; game titles, genre, ratings, sales, and more.
 
+> UPDATE(03/04/2024): I am now diving into learning how to visualize the data with Tableau! This will be fun to play around with.
+
 
 # Table of Contents 📋
 
