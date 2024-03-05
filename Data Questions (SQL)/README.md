@@ -316,7 +316,7 @@ I was able to easily divide both numbers to get our percentage of Open-World gam
 
 <br />
 
-For part 2 of this question lets find the percentages of all genres relative to the total games released by Nintendo. 
+For part 3 of this question lets find the percentages of all genres relative to the total games released by Nintendo. 
 
 ```sql
 DROP TABLE IF EXISTS percent_genre_joint_table;
@@ -335,7 +335,7 @@ SELECT * FROM percent_genre_joint_table
 ORDER BY percentage_genres DESC;
 ```
 
-✅ **Result:**
+✅ **Result Part 3:**
 |genre_id|genre_name          |percentage_genres|
 |--------|--------------------|-----------------|
 |22      |Platformer	      |14.08		|
