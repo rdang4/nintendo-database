@@ -85,7 +85,10 @@ This is the tail end of this project. Before we can answer our own questions fro
 # Solutions 🔑
 This part of the section will focus on answering my questions that I have given myself. With all the tables joined together, I will be able to analyze what kind of information can be taken out. I have added questions in which I can hopefully create a challenge for myself when playing around with the data. 
 
-> With different kinds of assessments and questions being given to me, I will definitely try to recreate my own here to mimic the idea. 
+> With different kinds of assessments and questions being given to me, I will definitely try to recreate my own here to mimic the idea.
+
+## View the answers to my questions here
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon8.png" width=24% height=24%>](/Data%20Questions%20(SQL))
 
 # Citations 🧾
 ### About the Gaming Industry
