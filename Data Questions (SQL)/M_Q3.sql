@@ -190,10 +190,10 @@ ORDER BY percentage_genres DESC;
 | genre_id | genre_name           | percentage_genres |
 +──────────+──────────────────────+───────────────────+
 | 22       | Platformer           | 14.08             |
-| 24       | RPG          	      | 9.86              |
+| 24       | RPG                  | 9.86              |
 | 19       | Open-World           | 8.45              |
 | 2        | Action Adventure     | 7.04              |
-| 41       | JRPG	                | 7.04              |
+| 41       | JRPG                 | 7.04              |
 | 4        | Action RPG           | 7.04              |
 | 20       | Party/Minigame       | 4.23              |
 | 31       | Simulation           | 4.23              |
@@ -209,7 +209,7 @@ ORDER BY percentage_genres DESC;
 | 15       | First-Person Shooter | 1.41              |
 | 13       | Exercise/Fitness     | 1.41              |
 | 35       | Tactics              | 1.41              |
-| 8        | Beat-''Em-Up 	      | 1.41              |
+| 8        | Beat-''Em-Up         | 1.41              |
 | 1        | Action               | 1.41              |
 +──────────+──────────────────────+───────────────────+
 
