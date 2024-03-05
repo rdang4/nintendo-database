@@ -23,6 +23,8 @@ INNER JOIN percent_genre_joint_table AS t2
 SELECT * FROM complete_joint_dataset
 ORDER BY percentage_genres DESC
 LIMIT 10;
+
+-- Result: 
 +──────────+────────────────────+───────────+────────────+───────────────────+
 | genre_id | genre_name         | avg_score | game_count | percentage_genres |
 +──────────+────────────────────+───────────+────────────+───────────────────+
@@ -37,3 +39,17 @@ LIMIT 10;
 | 14      | Fighting            | 86.60	    | 3          | 4.23	             |
 | 20      | Party/Minigame      | 86.60	    | 3          | 4.23	             |
 +──────────+────────────────────+───────────+────────────+───────────────────+
+
+/********************************************************************
+
+FINISHING THOUGHTS:
+
+With All the Tables We Have Used To Answer Our Questions
+
+We can now see the percentages of games in comparison to all genres:
+
+* Platformers making up 14.08% out of the total games in this database
+* RPGs making up 9.86% out of the total games in this database
+* Open-World making up 8.45% out of the total games in this database
+
+********************************************************************/
