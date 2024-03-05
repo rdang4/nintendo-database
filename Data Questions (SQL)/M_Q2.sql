@@ -31,18 +31,18 @@ LIMIT 10;
 
 -- Result Part 1: 
 +─────────+─────────────────────────────────────────────────────────────────+─────────────+──────────────────+
-| game_id | title                              	 			                      | metascore   | genre_name	     |
+| game_id | title                              	                           | metascore   | genre_name       |
 +─────────+─────────────────────────────────────────────────────────────────+─────────────+──────────────────+
-| 16      | The Legend of Zelda: Breath of the Wild  			                  | 97          | Open-World	     |
-| 59      | The Legend of Zelda: Tears of the Kingdom			                  | 96          | Open-World	     |
-| 73      | Xenoblade Chronicles 3: Expansion Pass Wave 4 - Future Redeemed | 92          | Action RPG	     |
-| 71      | Bayonetta 2							                                        | 92          | Action Adventure |
-| 96      | Xenoblade Chronicles: Definitive Edition			                  | 89          | Action RPG	     |
-| 98      | Xenoblade Chronicles 3					                                | 89          | Action RPG	     |
-| 142     | The Legend of Zelda: Link's Awakening 	                        | 87          | Open-World	     |
+| 16      | The Legend of Zelda: Breath of the Wild                         | 97          | Open-World       |
+| 59      | The Legend of Zelda: Tears of the Kingdom                       | 96          | Open-World       |
+| 73      | Xenoblade Chronicles 3: Expansion Pass Wave 4 - Future Redeemed | 92          | Action RPG       |
+| 71      | Bayonetta 2                                                     | 92          | Action Adventure |
+| 96      | Xenoblade Chronicles: Definitive Edition                        | 89          | Action RPG       |
+| 98      | Xenoblade Chronicles 3                                          | 89          | Action RPG       |
+| 142     | The Legend of Zelda: Link's Awakening                           | 87          | Open-World       |
 | 136     | Astral Chain                                                    | 87          | Action Adventure |
 | 183     | Luigi's Mansion 3                                               | 86          | Action Adventure |
-| 174     | Bayonetta 3							                                        | 86          | Action Adventure |
+| 174     | Bayonetta 3                                                     | 86          | Action Adventure |
 +─────────+─────────────────────────────────────────────────────────────────+─────────────+──────────────────+
 
 -- Top User Scores (Part 2) --
@@ -67,18 +67,18 @@ LIMIT 10;
 
 -- Result Part 2:
 +─────────+─────────────────────────────────────────────────────────────────+─────────────+──────────────────+
-| game_id | title                              	 			                      | user_score  | genre_name	     |
+| game_id | title                                                           | user_score  | genre_name       |
 +─────────+─────────────────────────────────────────────────────────────────+─────────────+──────────────────+
-| 71      | Bayonetta 2			  	 			                                      | 8.9         | Action Adventure |
-| 73      | Xenoblade Chronicles 3: Expansion Pass Wave 4 - Future Redeemed | 8.9         | Action RPG	     |
-| 136     | Astral Chain						 	                                      | 8.9         | Action Adventure |
-| 96      | Xenoblade Chronicles: Definitive Edition			                  | 8.8         | Action RPG	     |
-| 16      | The Legend of Zelda: Breath of the Wild			                    | 8.7         | Open-World	     |
-| 904     | Bayonetta Origins: Cereza and the Lost Demon	  		            | 8.5         | Action Adventure |
-| 98      | Xenoblade Chronicles 3				  	                              | 8.5         | Action RPG	     |
-| 326     | Xenoblade Chronicles 2					                                | 8.5         | Action RPG	     |
-| 961     | Xenoblade Chronicles 2: Torna ~ The Golden Country		          | 8.5         | Action RPG	     |
-| 142     | The Legend of Zelda: Link''s Awakening				                  | 8.4         | Action Adventure |
+| 71      | Bayonetta 2                                                     | 8.9         | Action Adventure |
+| 73      | Xenoblade Chronicles 3: Expansion Pass Wave 4 - Future Redeemed | 8.9         | Action RPG       |
+| 136     | Astral Chain                                                    | 8.9         | Action Adventure |
+| 96      | Xenoblade Chronicles: Definitive Edition                        | 8.8         | Action RPG       |
+| 16      | The Legend of Zelda: Breath of the Wild                         | 8.7         | Open-World       |
+| 904     | Bayonetta Origins: Cereza and the Lost Demon                    | 8.5         | Action Adventure |
+| 98      | Xenoblade Chronicles 3                                          | 8.5         | Action RPG       |
+| 326     | Xenoblade Chronicles 2                                          | 8.5         | Action RPG       |
+| 961     | Xenoblade Chronicles 2: Torna ~ The Golden Country              | 8.5         | Action RPG       |
+| 142     | The Legend of Zelda: Link''s Awakening                          | 8.4         | Action Adventure |
 +─────────+─────────────────────────────────────────────────────────────────+─────────────+──────────────────+
 
 /*******************************************
