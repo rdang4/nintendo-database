@@ -10,6 +10,9 @@
 <p align="center">
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzMwNjMwdnhqM3Rsdno5ZmNkM2t3bGk4NGRiMXBrZmZ1aWQzaXNzciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T87BZ7cyOH7TwDBgwy/giphy.gif" width=40% height=40%>
 
+> I have never learned about Tableau before because I saw that it was not a free program to use. Although, I did stumble upon Tableau Public which was an alternative to the paid version. Below will be the visualizations I have made after a couple days of learning about the application. I experimented with Parameters and Calculated Fields in order to create a dashboard that was not TOO cluttered with information. I saw a lot of images of templates that had nice designs, but I think for now I will to stick to the basics.
+
+> What I found interesting during the learning process was the similarities that could be applied from SQL to Tableau. On the Data Source tab, I was able to inner join different tables or databases together just like how it is done in PostgreSQL.  
 
 ### Dashboard for All Results
 
