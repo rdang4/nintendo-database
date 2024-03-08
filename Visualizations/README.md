@@ -1,10 +1,11 @@
+# Data Visualizations Created from Tableau Public
+
 [<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon4.png" width=24% height=24%>](https://github.com/rdang4?tab=repositories)
 [<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon5.png" width=24% height=24%>](https://github.com/rdang4)
 
 <p align="center">
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzMwNjMwdnhqM3Rsdno5ZmNkM2t3bGk4NGRiMXBrZmZ1aWQzaXNzciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T87BZ7cyOH7TwDBgwy/giphy.gif" width=40% height=40%>
 
-# Data Visualizations Created from Tableau Public
 
 ### Dashboard for All Results
 
