@@ -147,7 +147,7 @@ I am excited to be done with a majority of the work! With so much effort put int
 
 <br />
 
-**WIP:** 
+**Data Questions (SQL) Folder:** 
 
 [<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon2.png" width=20% height=20%>](https://github.com/rdang4/nintendo-database-analytics/tree/main/Data%20Questions%20(SQL))
 
