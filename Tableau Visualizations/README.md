@@ -1,7 +1,11 @@
 # Data Visualizations Created from Tableau Public
 
-[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon4.png" width=24% height=24%>](https://github.com/rdang4?tab=repositories)
-[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon5.png" width=24% height=24%>](https://github.com/rdang4)
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon1.png" width=20% height=20%>](https://github.com/rdang4/nintendo-database-analytics/tree/main/Methodology%20(SQL))
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon2.png" width=20% height=20%>](https://github.com/rdang4/nintendo-database-analytics/tree/main/Data%20Questions%20(SQL))
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon3.png" width=20% height=20%>](https://github.com/rdang4/nintendo-database-analytics/tree/main)
+
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon4.png" width=20% height=20%>](https://github.com/rdang4?tab=repositories)
+[<img src="https://github.com/rdang4/nintendo-database-analytics/blob/main/Images/view_icon5.png" width=20% height=20%>](https://github.com/rdang4)
 
 <p align="center">
 <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzMwNjMwdnhqM3Rsdno5ZmNkM2t3bGk4NGRiMXBrZmZ1aWQzaXNzciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T87BZ7cyOH7TwDBgwy/giphy.gif" width=40% height=40%>
